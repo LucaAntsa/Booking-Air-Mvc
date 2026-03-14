@@ -1,0 +1,56 @@
+@model Booking_Mvc.Models.Destination
+
+@{
+    ViewData["Title"] = "Créer destination";
+}
+
+<div class="container mt-4">
+    <h2>Créer une destination</h2>
+
+    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="Lieu_Depart" class="form-label"></label>
+            <input asp-for="Lieu_Depart" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Lieu_Arriver" class="form-label"></label>
+            <input asp-for="Lieu_Arriver" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Heur_Depart" class="form-label"></label>
+            <input asp-for="Heur_Depart" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Duree" class="form-label"></label>
+            <input asp-for="Duree" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Date_Depart" class="form-label"></label>
+            <input asp-for="Date_Depart" type="datetime-local" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Date_Arriver" class="form-label"></label>
+            <input asp-for="Date_Arriver" type="datetime-local" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Nom_Vol" class="form-label"></label>
+            <input asp-for="Nom_Vol" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Prix" class="form-label"></label>
+            <input asp-for="Prix" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+        <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>

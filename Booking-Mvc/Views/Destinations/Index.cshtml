@@ -1,0 +1,24 @@
+@model List<Booking_Mvc.Models.Destination>
+
+<h2>Liste des destinations</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Départ</th>
+            <th>Arrivée</th>
+            <th>Prix</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Lieu_Depart</td>
+            <td>@item.Lieu_Arriver</td>
+            <td>@item.Prix</td>
+        </tr>
+    }
+    </tbody>
+</table>

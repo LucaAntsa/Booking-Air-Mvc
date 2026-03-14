@@ -1,0 +1,36 @@
+@model Booking_Mvc.Models.Destination
+
+@{
+    ViewData["Title"] = "Supprimer destination";
+}
+
+<div class="container mt-4">
+    <h2>Supprimer une destination</h2>
+
+    <div class="alert alert-warning">
+        Voulez-vous vraiment supprimer cette destination ?
+    </div>
+
+    <dl class="row">
+        <dt class="col-sm-3">Départ</dt>
+        <dd class="col-sm-9">@Model.Lieu_Depart</dd>
+
+        <dt class="col-sm-3">Arrivée</dt>
+        <dd class="col-sm-9">@Model.Lieu_Arriver</dd>
+
+        <dt class="col-sm-3">Heure départ</dt>
+        <dd class="col-sm-9">@Model.Heur_Depart</dd>
+
+        <dt class="col-sm-3">Durée</dt>
+        <dd class="col-sm-9">@Model.Duree</dd>
+
+        <dt class="col-sm-3">Prix</dt>
+        <dd class="col-sm-9">@Model.Prix</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input asp-for="Id" type="hidden" />
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+        <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
