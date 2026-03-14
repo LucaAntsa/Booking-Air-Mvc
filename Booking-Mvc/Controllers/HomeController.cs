@@ -15,6 +15,14 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult Login()
+    {
+        return View();
+    }
+    public IActionResult Sign()
+    {
+        return View();
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

@@ -29,3 +29,68 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+
+
+
+
+
+
+
+
+
+
+:root{
+  --blue: #258cfb;
+  --red: red;
+  --sky: aquamarine;
+  --green: green;
+  --White: white;
+}
+
+
+
+.form-Sign{
+  display: flex;
+  background-color: var(--blue);
+  height: 400px;
+  .form-disagn{
+    background-color: var(--sky);
+    margin: 1rem;
+    border-radius:  1rem;
+    text-align: center;
+    align-content: center;
+    padding: 2rem;
+    flex: 0.4;
+
+    .btn-sign{
+      background-color: var(--green);
+      width: max-content;
+      padding: 0.1rem 2rem;
+      margin: 0 auto;
+      border-radius: 1rem;
+    }
+  }
+
+  .form-Sign-user{
+    border-radius: 1rem;
+    background-color: var(--red);
+    margin: 1rem;
+    flex: 1;
+
+    .part-form{
+      background-color: var(--White);
+    }
+
+    .btn-sub-create{
+      width: 70%;
+      border: none;
+      border-radius: 0.5rem;
+    }
+
+    input{
+      border: 1px solid black;
+      width: 90%;
+    }
+  }
+}
