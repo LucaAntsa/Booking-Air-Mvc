@@ -175,3 +175,20 @@ body {
     }
   }
 }
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.fond-acc{
+  height: 300px;
+  background-image: url(../img/fond1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-content: center;
+}

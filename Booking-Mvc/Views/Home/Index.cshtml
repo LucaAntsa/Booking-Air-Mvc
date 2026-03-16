@@ -3,12 +3,154 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to BookinAir</h1>
-    <p>Application de réservation de billets.</p>
-
+    <div class="fond-acc">
+        <h1 class="display-4">Welcome to BookinAir</h1>
+        <p>Application de réservation de billets.</p>
+    </div>
     <br />
 
-    <a asp-controller="Destinations" asp-action="Index" class="btn btn-primary btn-lg">
-        Voir les destinations
-    </a>
+    <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Liste des destinations récents: </h2>
+    </div>
+    <section class="destination-grid">
+        <div class="destination-card">
+
+            <div class="destination-top">
+
+                <div class="destination-route">
+                    <p class="destination-label">Route</p>
+                    <p class="destination-value">Tana → Paris</p>
+                </div>
+
+                <div class="destination-duration">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>5H</span>
+                </div>
+
+            </div>
+
+
+            <div class="destination-dates">
+
+                <p>
+                    <span>Departure</span>
+                    12 Jun 2026 - 08:00
+                </p>
+
+                <p>
+                    <span>Arrival</span>
+                    12 Jun 2026 - 13:00
+                </p>
+
+            </div>
+
+
+            <div class="destination-bottom">
+
+                <p class="destination-price">$500</p>
+
+                <a class="destination-buy"
+                asp-controller="Home"
+                asp-action="Billet"
+                asp-area="">
+                    Book flight
+                </a>
+
+            </div>
+
+        </div>
+        <div class="destination-card">
+
+            <div class="destination-top">
+
+                <div class="destination-route">
+                    <p class="destination-label">Route</p>
+                    <p class="destination-value">Tana → Paris</p>
+                </div>
+
+                <div class="destination-duration">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>5H</span>
+                </div>
+
+            </div>
+
+
+            <div class="destination-dates">
+
+                <p>
+                    <span>Departure</span>
+                    12 Jun 2026 - 08:00
+                </p>
+
+                <p>
+                    <span>Arrival</span>
+                    12 Jun 2026 - 13:00
+                </p>
+
+            </div>
+
+
+            <div class="destination-bottom">
+
+                <p class="destination-price">$500</p>
+
+                <a class="destination-buy"
+                asp-controller="Home"
+                asp-action="Billet"
+                asp-area="">
+                    Book flight
+                </a>
+
+            </div>
+
+        </div>
+        <div class="destination-card">
+
+            <div class="destination-top">
+
+                <div class="destination-route">
+                    <p class="destination-label">Route</p>
+                    <p class="destination-value">Tana → Paris</p>
+                </div>
+
+                <div class="destination-duration">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>5H</span>
+                </div>
+
+            </div>
+
+
+            <div class="destination-dates">
+
+                <p>
+                    <span>Departure</span>
+                    12 Jun 2026 - 08:00
+                </p>
+
+                <p>
+                    <span>Arrival</span>
+                    12 Jun 2026 - 13:00
+                </p>
+
+            </div>
+
+
+            <div class="destination-bottom">
+
+                <p class="destination-price">$500</p>
+
+                <a class="destination-buy"
+                asp-controller="Home"
+                asp-action="Billet"
+                asp-area="">
+                    Book flight
+                </a>
+
+            </div>
+
+        </div>
+    </section>
 </div>

@@ -4,11 +4,11 @@
 
 <div class="form-Sign">
     <div class="form-disagn">
-        <h2>Bienvenue sur BookingAir</h2>
+        <h2>Cree votre compte</h2>
         <p style="line-height: 1rem;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, nostrum. Modi sint velit libero error?</p>
         <a class="nav-link text-dark btn-sign" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
         <p>or</p>
-        <div style="display: flex; gap: 1rem; background-color: aliceblue; justify-content: space-between; width: 50%; margin: auto;">
+        <div style="display: flex; gap: 1rem; background-color: aliceblue; justify-content: space-between; width: 50%; margin: 0px auto;">
             <p>fb</p>
             <p>twt</p>
             <p>insta</p>
@@ -16,25 +16,41 @@
 
     </div>
     <form action="" class="form-Sign-user">
-        <h3 style="text-align: center;" class="mt-2 mb-0">Connect account</h3>
-        <p style="text-align: center;">Lorem, ipsum dolor sit amet consectetur adipisicing </p>
+        <h3 style="text-align: center;" class="mt-2 mb-0">Create your account</h3>
+        <p style="text-align: center;">Join BookingAir and start booking your flights easily</p>
 
-        <div class="d-flex part-form mx-5 mb-2">
+        <div class="d-flex part-form mx-3 mb-2">
             <div class="flex-fill">
-                <label for="" >email</label>
+                <label for="">Full name</label><br>
+                <input type="text">
+            </div>
+            <div class="flex-fill">
+                <label for="">Email address</label>
                 <br>
                 <input type="email">
             </div>
         </div>
-        <div class="d-flex part-form mx-5 mb-2">
+
+        <div class="part-form mx-3 mb-2" style="text-align: center;">
+            <label for="">Address</label>
+            <br>
+            <input type="text">
+        </div>
+
+        <div class="d-flex part-form mx-3 mb-2">
             <div class="flex-fill">
                 <label for="">Password</label>
                 <br>
-                <input type="text">
+                <input type="password">
+            </div>
+            <div class="flex-fill">
+                <label for="">Confirm password</label> <br>
+                <input type="password">
             </div>
         </div>
+
         <div class="text-center my-2">
-            <button type="submit" class="btn-sub-create">Connect</button>
+            <button type="submit" class="btn-sub-create">Create account</button>
         </div>
     </form>
 </div>

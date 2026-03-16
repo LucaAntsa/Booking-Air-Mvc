@@ -1,0 +1,129 @@
+/* STRUCTURE HEADER */
+
+.header-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.header-menu{
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+}
+
+/* LOGO */
+
+.header-logo{
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--green);
+  text-decoration:none;
+}
+
+/* CENTRE */
+
+.header-center{
+  margin:auto;
+  display:flex;
+  gap:1.2rem;
+}
+
+/* DROITE */
+
+.header-right{
+  display:flex;
+  gap:0.8rem;
+}
+
+/* ICONES */
+
+.header-icon{
+  margin-right:0.3rem;
+  color:inherit;
+}
+
+/* LIENS */
+
+.header-link{
+  font-size:0.9rem;
+  font-weight:500;
+  color:var(--blue) !important;
+  display:flex;
+  align-items:center;
+  gap:0.3rem;
+  transition:all 1s;
+}
+
+/* HOVER */
+
+.header-link:hover{
+  color:var(--green) !important;
+  transform:translateY(-2px);
+}
+
+/* LOGIN */
+
+.header-login{
+  background:var(--blue);
+  color:white !important;
+  padding:0.35rem 0.8rem;
+  border-radius:20px;
+  font-size:0.9rem;
+  transition:all 1s;
+}
+
+.header-login:hover{
+  background:var(--green);
+  transform:translateY(-2px);
+}
+
+/* MINI BARRE DE RECHERCHE HEADER */
+
+.header-search-li{
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+}
+
+.header-search-form{
+  display: flex;
+  align-items: center;
+  background: var(--red);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0.1rem;
+}
+
+.header-search-input{
+  border: none;
+  outline: none;
+  padding: 0.35rem 0.8rem;
+  width: 180px;
+  border-radius: 20px 0 0 20px;
+  font-size: 0.85rem;
+  background: var(--White);
+  color: var(--green);
+}
+
+.header-search-input::placeholder{
+  color: #888;
+}
+
+.header-search-btn{
+  background: var(--green);
+  border: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0 20px 20px 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.header-search-btn:hover{
+  background: var(--blue);
+  transform: translateY(-1px);
+}

@@ -360,8 +360,6 @@ C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\ljg8c
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\f0xedxiv01-{0}-9vr69e8ynj-9vr69e8ynj.gz
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\vqpksny04v-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\uminb0e0dn-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\0rpcco579c-{0}-a1zah68zbo-a1zah68zbo.gz
-C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\udl8cxdtc0-{0}-a1zah68zbo-a1zah68zbo.gz
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\staticwebassets.build.json
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\staticwebassets.development.json
@@ -373,4 +371,8 @@ C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\refint\Booking-M
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\Booking-Mvc.pdb
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\Booking-Mvc.genruntimeconfig.cache
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\ref\Booking-Mvc.dll
-C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\w7ylsyf4t7-{0}-3x4atwxn60-3x4atwxn60.gz
+C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\pyezxcd7nc-{0}-yfdm0o62sr-yfdm0o62sr.gz
+C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\0rpcco579c-{0}-rb5dqfhmlu-rb5dqfhmlu.gz
+C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\udl8cxdtc0-{0}-rb5dqfhmlu-rb5dqfhmlu.gz
+C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\whhn7zhyex-{0}-cu12rbthvu-cu12rbthvu.gz
+C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\w7ylsyf4t7-{0}-yuxgqn5bh9-yuxgqn5bh9.gz
