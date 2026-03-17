@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Accueil";
 }
 
 <div class="text-center">
@@ -14,49 +14,72 @@
         <h2>Liste des destinations récents: </h2>
     </div>
     <section class="destination-grid">
+        @* mettre boucle *@
         <div class="destination-card">
-
             <div class="destination-top">
-
                 <div class="destination-route">
                     <p class="destination-label">Route</p>
                     <p class="destination-value">Tana → Paris</p>
                 </div>
-
                 <div class="destination-duration">
                     <i class="fa-solid fa-clock"></i>
                     <span>5H</span>
                 </div>
-
             </div>
 
-
             <div class="destination-dates">
-
                 <p>
                     <span>Departure</span>
                     12 Jun 2026 - 08:00
                 </p>
-
                 <p>
                     <span>Arrival</span>
                     12 Jun 2026 - 13:00
                 </p>
-
             </div>
 
-
             <div class="destination-bottom">
-
                 <p class="destination-price">$500</p>
-
                 <a class="destination-buy"
                 asp-controller="Home"
                 asp-action="Billet"
                 asp-area="">
                     Book flight
                 </a>
+            </div>
+        </div>
 
+        <div class="destination-card">
+            <div class="destination-top">
+                <div class="destination-route">
+                    <p class="destination-label">Route</p>
+                    <p class="destination-value">Tana → Paris</p>
+                </div>
+                <div class="destination-duration">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>5H</span>
+                </div>
+            </div>
+
+            <div class="destination-dates">
+                <p>
+                    <span>Departure</span>
+                    12 Jun 2026 - 08:00
+                </p>
+                <p>
+                    <span>Arrival</span>
+                    12 Jun 2026 - 13:00
+                </p>
+            </div>
+
+            <div class="destination-bottom">
+                <p class="destination-price">$500</p>
+                <a class="destination-buy"
+                asp-controller="Home"
+                asp-action="Billet"
+                asp-area="">
+                    Book flight
+                </a>
             </div>
 
         </div>
@@ -106,51 +129,35 @@
             </div>
 
         </div>
-        <div class="destination-card">
+    </section>
 
-            <div class="destination-top">
-
-                <div class="destination-route">
-                    <p class="destination-label">Route</p>
-                    <p class="destination-value">Tana → Paris</p>
-                </div>
-
-                <div class="destination-duration">
-                    <i class="fa-solid fa-clock"></i>
-                    <span>5H</span>
-                </div>
-
-            </div>
-
-
-            <div class="destination-dates">
-
-                <p>
-                    <span>Departure</span>
-                    12 Jun 2026 - 08:00
+    <section class="home-about-section">
+        <div class="container">
+            <div class="home-about-content">
+                <h2 class="home-about-title">
+                    Why choose BookingAir?
+                </h2>
+                <p class="home-about-description">
+                    BookingAir is a modern platform designed to make flight booking simple,
+                    fast, and accessible to everyone. Our goal is to help travelers easily
+                    find destinations, compare schedules, and book flights with the best
+                    prices in just a few clicks.
                 </p>
-
-                <p>
-                    <span>Arrival</span>
-                    12 Jun 2026 - 13:00
-                </p>
-
+                <div class="home-about-features">
+                    <div class="home-feature">
+                        <i class="fa-solid fa-plane"></i>
+                        <p>Multiple destinations</p>
+                    </div>
+                    <div class="home-feature">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>Fast booking</p>
+                    </div>
+                    <div class="home-feature">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <p>Secure payment</p>
+                    </div>
+                </div>
             </div>
-
-
-            <div class="destination-bottom">
-
-                <p class="destination-price">$500</p>
-
-                <a class="destination-buy"
-                asp-controller="Home"
-                asp-action="Billet"
-                asp-area="">
-                    Book flight
-                </a>
-
-            </div>
-
         </div>
     </section>
 </div>

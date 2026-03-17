@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Booking_Mvc.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/destination.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/footer.css" asp-append-version="true">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -85,10 +86,88 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - Booking_Mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer-main">
+
+        <div class="container footer-container">
+
+            <!-- LOGO + DESCRIPTION -->
+            <div class="footer-brand">
+                <h4 class="footer-logo">
+                    <i class="fa-solid fa-plane footer-icon"></i> BookingAir
+                </h4>
+                <p class="footer-text">
+                    Book flights easily and travel the world with comfort and security.
+                </p>
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <div class="footer-links">
+
+                <h5 class="footer-title">Navigation</h5>
+
+                <a asp-controller="Home" asp-action="Index" class="footer-link">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+
+                <a asp-controller="Home" asp-action="Privacy" class="footer-link">
+                    <i class="fa-solid fa-lock"></i> Privacy
+                </a>
+
+                <a asp-controller="Home" asp-action="Sign" class="footer-link">
+                    <i class="fa-solid fa-user-plus"></i> Sign up
+                </a>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+            <div class="footer-support">
+
+                <h5 class="footer-title">Support</h5>
+
+                <p class="footer-contact">
+                    <i class="fa-solid fa-envelope"></i> support@bookingair.com
+                </p>
+
+                <p class="footer-contact">
+                    <i class="fa-solid fa-phone"></i> +261 34 00 000 00
+                </p>
+
+            </div>
+
+
+            <!-- SOCIAL -->
+            <div class="footer-social">
+
+                <h5 class="footer-title">Follow us</h5>
+
+                <div class="footer-social-icons">
+
+                    <a href="#" class="footer-social-link">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+
+                    <a href="#" class="footer-social-link">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+
+                    <a href="#" class="footer-social-link">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
+
+
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            © 2026 BookingAir - All rights reserved
+        </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -2,18 +2,31 @@
     ViewData["Title"] = "Sign";
 }
 
-<div class="form-Sign">
+<div class="form-Sign mx-5">
     <div class="form-disagn">
-        <h2>Cree votre compte</h2>
-        <p style="line-height: 1rem;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, nostrum. Modi sint velit libero error?</p>
-        <a class="nav-link text-dark btn-sign" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
-        <p>or</p>
-        <div style="display: flex; gap: 1rem; background-color: aliceblue; justify-content: space-between; width: 50%; margin: 0px auto;">
-            <p>fb</p>
-            <p>twt</p>
-            <p>insta</p>
-        </div>
+        <h2 class="form-title">Create your account</h2>
+        <p class="form-text">
+            Join BookingAir and book your flights easily and securely.
+        </p>
 
+        <a class="btn-sign" asp-controller="Home" asp-action="Login">
+            Login
+        </a>
+
+        <p class="form-separator">or continue with</p>
+        <div class="form-social">
+            <a href="#" class="form-social-btn form-facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="#" class="form-social-btn form-google">
+                <i class="fa-brands fa-google"></i>
+            </a>
+
+            <a href="#" class="form-social-btn form-binance">
+                <i class="fa-brands fa-btc"></i>
+            </a>
+        </div>
     </div>
     <form action="" class="form-Sign-user">
         <h3 style="text-align: center;" class="mt-2 mb-0">Create your account</h3>

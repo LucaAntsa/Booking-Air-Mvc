@@ -186,9 +186,82 @@ a{
 }
 
 .fond-acc{
-  height: 300px;
+  height: 350px;
   background-image: url(../img/fond1.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   align-content: center;
+}
+
+/* TITRE */
+
+.form-title{
+  font-weight:600;
+  color:var(--green);
+  margin-bottom:0.3rem;
+}
+
+/* TEXTE */
+
+.form-text{
+  font-size:0.85rem;
+  color:#555;
+  line-height:1.2rem;
+}
+
+/* SEPARATEUR */
+
+.form-separator{
+  font-size:0.8rem;
+  color:#888;
+  margin:0.6rem 0;
+}
+
+/* SOCIAL CONTAINER */
+
+.form-social{
+  display:flex;
+  justify-content:center;
+  gap:0.8rem;
+}
+
+/* SOCIAL BUTTON */
+
+.form-social-btn{
+  width:34px;
+  height:34px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+  text-decoration:none;
+  color:white;
+
+  transition:all 0.3s;
+}
+
+/* FACEBOOK */
+
+.form-facebook{
+  background:#1877f2;
+}
+
+/* GOOGLE */
+
+.form-google{
+  background:#db4437;
+}
+
+/* BINANCE */
+
+.form-binance{
+  background:#f3ba2f;
+  color:black;
+}
+
+.form-social-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
