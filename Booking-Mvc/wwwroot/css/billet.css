@@ -1,0 +1,139 @@
+/* SECTION */
+
+.billet-section{
+  padding:3rem 0;
+}
+
+
+/* CARD */
+
+.billet-card{
+  width:520px;
+  margin:auto;
+  border-radius:1.5rem;
+  padding:1.5rem;
+
+  background: linear-gradient(
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.95)
+  ),
+  url("../img/fondReservation.jpg");
+
+  background-size:cover;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+
+/* HEADER */
+
+.billet-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:1rem;
+}
+
+
+/* TEXT */
+
+.billet-label{
+  font-size:0.75rem;
+  color:#777;
+  margin-bottom:0.1rem;
+}
+
+.billet-route{
+  font-size:1.3rem;
+  font-weight:600;
+  color:var(--green);
+}
+
+.billet-duration{
+  font-size:1.1rem;
+  font-weight:500;
+  color:var(--blue);
+}
+
+.billet-time{
+  display:flex;
+  flex-direction:column;
+  gap:0.3rem;
+  align-items:flex-end;
+}
+
+.billet-time-value{
+  font-size:1rem;
+  font-weight:500;
+  color:var(--blue);
+}
+
+/* INFO */
+
+.billet-info{
+  font-size:0.85rem;
+  color:#555;
+  margin-bottom:1.5rem;
+}
+
+.billet-info span{
+  font-weight:500;
+  color:#333;
+}
+
+
+/* FORM */
+
+.billet-form-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:1rem;
+}
+
+.billet-price{
+  color:var(--green);
+  font-weight:600;
+}
+
+
+/* INPUT */
+
+.billet-qty label{
+  font-size:0.75rem;
+  color:#777;
+  display:block;
+}
+
+.billet-qty input{
+  width:70px;
+  padding:0.3rem;
+  border-radius:0.4rem;
+  border:1px solid #c8e6c9;
+  outline:none;
+}
+
+.billet-qty input:focus{
+  border-color:var(--blue);
+}
+
+
+/* BUTTON */
+
+.btn-billet{
+  width:100%;
+  border:none;
+  padding:0.6rem;
+  border-radius:0.6rem;
+
+  background:var(--blue);
+  color:white;
+  font-weight:500;
+
+  transition:all 0.3s;
+}
+
+.btn-billet:hover{
+  background:var(--green);
+  transform:translateY(-2px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
