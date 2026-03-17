@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header class="header-main">
+    <header class="header-main pb-2">
         <nav class="px-3 navbar navbar-expand-sm navbar-light header-navbar">
             <div class="container-fluid header-container">
 
@@ -68,7 +68,7 @@
                         </li>
 
                         <li class="nav-item px-3">
-                            <a class="nav-link header-login" asp-controller="Home" asp-action="Login">
+                            <a class="nav-link header-login px-3" asp-controller="Home" asp-action="Login">
                                 <i class="fa-solid fa-right-to-bracket header-icon"></i> Login
                             </a>
                         </li>
@@ -80,7 +80,7 @@
             </div>
         </nav>
     </header>
-<br>
+
     <div>
         <main role="main">
             @RenderBody()
