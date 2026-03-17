@@ -17,7 +17,7 @@
 .header-logo{
   font-size:1.3rem;
   font-weight:700;
-  color:var(--green);
+  color:var(--green) !important;
   text-decoration:none;
 }
 
