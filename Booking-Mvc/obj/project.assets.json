@@ -2010,19 +2010,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\micka\\.nuget\\packages\\": {}
+    "C:\\Users\\antsa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MICHAEL\\DOTNET\\Booking-Air-Mvc\\Booking-Mvc\\Booking-Mvc.csproj",
+      "projectUniqueName": "C:\\Users\\antsa\\Desktop\\Booking-Air-Mvc\\Booking-Mvc\\Booking-Mvc.csproj",
       "projectName": "Booking-Mvc",
-      "projectPath": "C:\\MICHAEL\\DOTNET\\Booking-Air-Mvc\\Booking-Mvc\\Booking-Mvc.csproj",
-      "packagesPath": "C:\\Users\\micka\\.nuget\\packages\\",
-      "outputPath": "C:\\MICHAEL\\DOTNET\\Booking-Air-Mvc\\Booking-Mvc\\obj\\",
+      "projectPath": "C:\\Users\\antsa\\Desktop\\Booking-Air-Mvc\\Booking-Mvc\\Booking-Mvc.csproj",
+      "packagesPath": "C:\\Users\\antsa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\antsa\\Desktop\\Booking-Air-Mvc\\Booking-Mvc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\micka\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\antsa\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -2088,7 +2088,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

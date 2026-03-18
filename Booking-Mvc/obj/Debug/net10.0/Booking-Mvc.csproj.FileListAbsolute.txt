@@ -111,7 +111,6 @@ C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\rjsmcshtml.
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\scopedcss\bundle\Booking-Mvc.styles.css
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\scopedcss\projectbundle\Booking-Mvc.bundle.scp.css
-C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\w7ylsyf4t7-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\pt9bfq5o4r-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\jgwx4z89ok-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\o5y6lpb1w0-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -173,8 +172,6 @@ C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\f0xedxiv01-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\vqpksny04v-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\uminb0e0dn-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\0rpcco579c-{0}-a1zah68zbo-a1zah68zbo.gz
-C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\udl8cxdtc0-{0}-a1zah68zbo-a1zah68zbo.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\staticwebassets.development.json
@@ -376,3 +373,8 @@ C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\0rpcc
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\udl8cxdtc0-{0}-rb5dqfhmlu-rb5dqfhmlu.gz
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\whhn7zhyex-{0}-cu12rbthvu-cu12rbthvu.gz
 C:\MICHAEL\DOTNET\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\w7ylsyf4t7-{0}-yuxgqn5bh9-yuxgqn5bh9.gz
+C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\whhn7zhyex-{0}-28uycum0kg-28uycum0kg.gz
+C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\0rpcco579c-{0}-rb5dqfhmlu-rb5dqfhmlu.gz
+C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\udl8cxdtc0-{0}-rb5dqfhmlu-rb5dqfhmlu.gz
+C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\pyezxcd7nc-{0}-bhj0ln4p7b-bhj0ln4p7b.gz
+C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\w7ylsyf4t7-{0}-91p9me27nu-91p9me27nu.gz

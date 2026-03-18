@@ -1,0 +1,91 @@
+@model Booking_Mvc.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Connexion";
+}
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-left">
+            <div class="auth-brand">
+                <h2>BookingAir</h2>
+                <span class="brand-line"></span>
+            </div>
+
+            <div class="auth-content">
+                <h1>Bienvenue !</h1>
+                <p class="auth-description">
+                    Connectez-vous à votre compte pour gérer vos réservations, consulter vos vols et profiter d’une expérience de voyage simple et rapide.
+                </p>
+
+                <a class="btn-switch-auth" asp-controller="Account" asp-action="Register">
+                    Create account
+                </a>
+
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-box">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="X">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-right">
+            <form asp-action="Login" method="post" class="auth-form">
+                <div class="auth-form-header">
+                    <h3>Sign in</h3>
+                    <p>Entrez vos informations pour accéder à votre espace personnel.</p>
+                </div>
+
+                <div asp-validation-summary="All" class="text-danger text-center mb-3"></div>
+
+                <div class="form-group-modern">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <div class="input-icon-group">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                        <input asp-for="Email" type="email" class="form-control custom-input modern-input" placeholder="Enter your email" />
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <div class="input-icon-group">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input asp-for="Password" type="password" class="form-control custom-input modern-input" placeholder="Enter your password" />
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="auth-options">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe" />
+                        <label class="form-check-label" for="rememberMe">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-login-modern">
+                    Connect
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

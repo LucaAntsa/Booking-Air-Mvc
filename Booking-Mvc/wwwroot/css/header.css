@@ -1,107 +1,162 @@
-/* STRUCTURE HEADER */
+/* =========================
+   STRUCTURE HEADER
+========================= */
+
+.header-main{
+  background: var(--White);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-navbar{
+  min-height: 75px;
+}
 
 .header-container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .header-menu{
-  display:flex;
-  justify-content:space-between;
-  width:100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .header-logo{
-  font-size:1.3rem;
-  font-weight:700;
-  color:var(--green);
-  text-decoration:none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--green);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-/* CENTRE */
+.header-logo:hover{
+  color: var(--blue);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   MENU CENTRE
+========================= */
 
 .header-center{
-  margin:auto;
-  display:flex;
-  gap:1.2rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* DROITE */
+/* =========================
+   MENU DROITE
+========================= */
 
 .header-right{
-  display:flex;
-  gap:0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0;
 }
 
-/* ICONES */
+/* =========================
+   ICONES
+========================= */
 
 .header-icon{
-  margin-right:0.3rem;
-  color:inherit;
+  margin-right: 0.25rem;
+  color: inherit;
+  font-size: 0.9rem;
 }
 
-/* LIENS */
+/* =========================
+   LIENS
+========================= */
 
 .header-link{
-  font-size:0.9rem;
-  font-weight:500;
-  color:var(--blue) !important;
-  display:flex;
-  align-items:center;
-  gap:0.3rem;
-  transition:all 1s;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--blue) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem !important;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
-
-/* HOVER */
 
 .header-link:hover{
-  color:var(--green) !important;
-  transform:translateY(-2px);
+  color: var(--green) !important;
+  background: rgba(165, 214, 167, 0.18);
+  transform: translateY(-2px);
 }
 
-/* LOGIN */
+/* =========================
+   LOGIN / LOGOUT BUTTON
+========================= */
 
 .header-login{
-  background:var(--blue);
-  color:white !important;
-  padding:0.35rem 0.8rem;
-  border-radius:20px;
-  font-size:0.9rem;
-  transition:all 1s;
+  background: var(--blue);
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(27, 94, 32, 0.15);
+  white-space: nowrap;
 }
 
 .header-login:hover{
-  background:var(--green);
-  transform:translateY(-2px);
+  background: var(--green);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(27, 94, 32, 0.22);
 }
 
-/* MINI BARRE DE RECHERCHE HEADER */
+/* =========================
+   SEARCH BAR
+========================= */
 
 .header-search-li{
   display: flex;
   align-items: center;
-  margin: 0 0.5rem;
+  margin: 0 0.4rem;
 }
 
 .header-search-form{
   display: flex;
   align-items: center;
   background: var(--red);
-  border-radius: 20px;
+  border-radius: 999px;
   overflow: hidden;
-  padding: 0.1rem;
+  padding: 0.15rem;
+  border: 1px solid rgba(46, 125, 50, 0.12);
 }
 
 .header-search-input{
-  border: none;
-  outline: none;
-  padding: 0.35rem 0.8rem;
-  width: 180px;
-  border-radius: 20px 0 0 20px;
-  font-size: 0.85rem;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0.45rem 0.9rem;
+  width: 190px;
+  border-radius: 999px 0 0 999px;
+  font-size: 0.88rem;
   background: var(--White);
   color: var(--green);
 }
@@ -113,17 +168,106 @@
 .header-search-btn{
   background: var(--green);
   border: none;
-  padding: 0.35rem 0.6rem;
-  border-radius: 0 20px 20px 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0 999px 999px 0;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 
 .header-search-btn:hover{
   background: var(--blue);
   transform: translateY(-1px);
+}
+
+/* =========================
+   TOGGLER
+========================= */
+
+.header-toggle{
+  border: none;
+  box-shadow: none !important;
+}
+
+.header-toggle:focus{
+  box-shadow: none !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 991px){
+  .header-menu{
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    background: var(--White);
+    padding: 1rem 0.5rem;
+    border-radius: 16px;
+  }
+
+  .header-center{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    margin: 0;
+  }
+
+  .header-right{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .header-link,
+  .header-login{
+    justify-content: center;
+  }
+
+  .header-search-li{
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+
+  .header-search-form{
+    width: 100%;
+  }
+
+  .header-search-input{
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px){
+  .header-navbar{
+    min-height: 68px;
+  }
+
+  .header-logo{
+    font-size: 1.2rem;
+  }
+
+  .header-link{
+    font-size: 0.9rem;
+    padding: 0.5rem 0.7rem !important;
+  }
+
+  .header-login{
+    font-size: 0.9rem;
+    padding: 0.5rem 0.9rem !important;
+  }
+
+  .header-search-input{
+    font-size: 0.84rem;
+    padding: 0.42rem 0.8rem;
+  }
+
+  .header-search-btn{
+    padding: 0.42rem 0.7rem;
+  }
 }

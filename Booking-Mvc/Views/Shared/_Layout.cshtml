@@ -4,32 +4,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Booking_Mvc</title>
+
     <script type="importmap"></script>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/destination.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Booking_Mvc.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/destination.css" asp-append-version="true">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
     <header class="header-main">
         <nav class="px-3 navbar navbar-expand-sm navbar-light header-navbar">
             <div class="container-fluid header-container">
 
-                <!-- LOGO GAUCHE -->
+                <!-- LOGO -->
                 <a class="navbar-brand header-logo" asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="fa-solid fa-plane header-icon"></i> BookingAir
                 </a>
 
-                <button class="navbar-toggler header-toggle" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                <button class="navbar-toggler header-toggle" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="navbar-collapse collapse header-menu">
-                    <!-- NAVIGATION CENTRE -->
-                    <ul class="navbar-nav header-center">
 
+                    <!-- MENU CENTRE -->
+                    <ul class="navbar-nav header-center">
                         <li class="nav-item">
                             <a class="nav-link header-link" asp-controller="Home" asp-action="Index">
                                 <i class="fa-solid fa-house header-icon"></i> Home
@@ -38,17 +40,19 @@
 
                         <li class="nav-item">
                             <a class="nav-link header-link" asp-controller="Home" asp-action="Privacy">
-                                <i class="fa-solid fa-lock header-icon"></i> Privacy
+                                <i class="fa-solid fa-shield-halved header-icon"></i> Privacy
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link header-link" asp-controller="Home" asp-action="Privacy">
-                                <i class="fa-solid fa-lock header-icon"></i> Privacy
+                            <a class="nav-link header-link" asp-controller="Destinations" asp-action="Index">
+                                <i class="fa-solid fa-location-dot header-icon"></i> Destinations
                             </a>
                         </li>
+
                         <li class="nav-item header-search-li">
                             <form class="d-flex header-search-form" role="search">
-                                <input class="form-control header-search-input" type="search" placeholder="Search flights..." aria-label="Search">
+                                <input class="form-control header-search-input" type="search" placeholder="Search flights..." aria-label="Search" />
                                 <button class="btn header-search-btn" type="submit">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
@@ -56,43 +60,58 @@
                         </li>
                     </ul>
 
-                    <!-- DROITE -->
+                    <!-- MENU DROITE -->
                     <ul class="navbar-nav header-right">
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link header-link">
+                                    <i class="fa-solid fa-user header-icon"></i> Bonjour @User.Identity.Name
+                                </span>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link header-link" asp-controller="Home" asp-action="Sign">
-                                <i class="fa-solid fa-user-plus header-icon"></i> Sign
-                            </a>
-                        </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link header-login" asp-controller="Account" asp-action="Logout">
+                                    <i class="fa-solid fa-right-from-bracket header-icon"></i> Déconnexion
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link header-link" asp-controller="Account" asp-action="Register">
+                                    <i class="fa-solid fa-user-plus header-icon"></i> Sign
+                                </a>
+                            </li>
 
-                        <li class="nav-item px-3">
-                            <a class="nav-link header-login" asp-controller="Home" asp-action="Login">
-                                <i class="fa-solid fa-right-to-bracket header-icon"></i> Login
-                            </a>
-                        </li>
-
+                            <li class="nav-item px-2">
+                                <a class="nav-link header-login" asp-controller="Account" asp-action="Login">
+                                    <i class="fa-solid fa-right-to-bracket header-icon"></i> Login
+                                </a>
+                            </li>
+                        }
                     </ul>
 
                 </div>
-
             </div>
         </nav>
     </header>
-<br>
-    <div>
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - Booking_Mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <main role="main" class="main-content">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted mt-4">
+        <div class="container py-3">
+            &copy; 2026 - Booking_Mvc -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
