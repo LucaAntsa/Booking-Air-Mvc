@@ -1,0 +1,96 @@
+@{
+    ViewData["Title"] = "Destinations";
+}
+
+<section class="liste-filters py-4">
+
+    <div class="container">
+
+        <div class="liste-filters-bar d-flex flex-wrap justify-content-between align-items-center gap-3">
+
+            <!-- Barre de recherche -->
+            <div class="liste-search">
+                <input type="text" class="liste-search-input" placeholder="Search destinations...">
+                <button class="liste-search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <!-- Filtres -->
+            <div class="liste-selects d-flex gap-2 flex-wrap">
+                <select class="liste-select">
+                    <option value="">All Flights</option>
+                    <option value="flight1">Flight 1</option>
+                    <option value="flight2">Flight 2</option>
+                </select>
+
+                <select class="liste-select">
+                    <option value="">All Dates</option>
+                    <option value="2026-06-12">12 Jun 2026</option>
+                    <option value="2026-06-13">13 Jun 2026</option>
+                </select>
+
+                <select class="liste-select">
+                    <option value="">Departure Time</option>
+                    <option value="08:00">08:00</option>
+                    <option value="12:00">12:00</option>
+                </select>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="liste-grid container mt-4">
+    @* Boucle Razor pour les destinations *@
+    @* Exemple fixe, à remplacer par une boucle foreach *@
+
+    <div class="destination-card ">
+        <div class="destination-top">
+            <div class="destination-route">
+                <p class="destination-label">Route</p>
+                <p class="destination-value">Tana → Paris</p>
+            </div>
+            <div class="destination-duration">
+                <i class="fa-solid fa-clock"></i>
+                <span>08:00 / 5H</span>
+            </div>
+        </div>
+
+        <div class="destination-dates">
+            <p><span>Departure</span> 12 Jun 2026</p>
+            <p><span>Arrival</span> 12 Jun 2026 - 13:00</p>
+        </div>
+
+        <div class="destination-bottom">
+            <p class="destination-price">$500</p>
+            <a class="destination-buy" asp-controller="Home" asp-action="Billet" asp-area="">Book flight</a>
+        </div>
+    </div>
+    <div class="destination-card">
+        <div class="destination-top">
+            <div class="destination-route">
+                <p class="destination-label">Route</p>
+                <p class="destination-value">Tana → Paris</p>
+            </div>
+            <div class="destination-duration">
+                <i class="fa-solid fa-clock"></i>
+                <span>08:00 / 5H</span>
+            </div>
+        </div>
+
+        <div class="destination-dates">
+            <p><span>Departure</span> 12 Jun 2026</p>
+            <p><span>Arrival</span> 12 Jun 2026 - 13:00</p>
+        </div>
+
+        <div class="destination-bottom">
+            <p class="destination-price">$500</p>
+            <a class="destination-buy" asp-controller="Home" asp-action="Billet" asp-area="">Book flight</a>
+        </div>
+    </div>
+
+    @* Duplique les autres cartes selon les données *@
+</section>

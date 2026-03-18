@@ -135,3 +135,174 @@
     grid-template-columns: 1fr;
   }
 }
+
+.home-about-section{
+  background: var(--red);
+  padding: 3rem 0;
+  margin-top: 3rem;
+}
+
+.home-about-content{
+  text-align:center;
+  max-width:700px;
+  margin:auto;
+}
+
+.home-about-title{
+  color:var(--green);
+  font-weight:600;
+  margin-bottom:0.8rem;
+}
+
+.home-about-description{
+  font-size:0.9rem;
+  color:#555;
+  line-height:1.5rem;
+  margin-bottom:1.5rem;
+}
+
+.home-about-features{
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+}
+
+.home-feature{
+  text-align:center;
+  font-size:0.85rem;
+  color:#444;
+}
+
+.home-feature i{
+  font-size:1.5rem;
+  color:var(--blue);
+  margin-bottom:0.3rem;
+}
+
+
+
+/* liste destination */
+
+/* Barres de filtre et recherche */
+.liste-filters-bar{
+    gap:1rem;
+    margin-bottom:1.5rem;
+}
+
+.liste-search{
+    display:flex;
+    align-items:center;
+    border:1px solid #c8e6c9;
+    border-radius:1rem;
+    overflow:hidden;
+    background:white;
+}
+
+.liste-search-input{
+    border:none;
+    padding:0.4rem 1rem;
+    outline:none;
+    width:200px;
+    font-size:0.9rem;
+}
+
+.liste-search-btn{
+    border:none;
+    background:var(--blue);
+    color:white;
+    padding:0.4rem 0.8rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.liste-search-btn:hover{
+    background:var(--green);
+    transform:translateY(-2px);
+}
+
+/* Select modernes */
+.liste-select{
+    border-radius:0.6rem;
+    border:1px solid #c8e6c9;
+    padding:0.35rem 0.8rem;
+    font-size:0.85rem;
+    background:white;
+    color:#333;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.liste-select:hover{
+    border-color:var(--blue);
+}
+
+/* Grille des destinations */
+.liste-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:1.5rem;
+}
+
+/* Carte destination (réutilise ton style) */
+.destination-card{
+    background:white;
+    border-radius:1rem;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    padding:1rem 1rem 2rem 1rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:0.3s;
+}
+
+.destination-card:hover{
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.destination-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:0.5rem;
+}
+
+.destination-route .destination-value{
+    font-weight:600;
+    color:var(--green);
+}
+
+.destination-duration span{
+    color:var(--blue);
+    font-weight:500;
+}
+
+.destination-dates p{
+    font-size:0.8rem;
+    margin:0.2rem 0;
+}
+
+.destination-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:1rem;
+}
+
+.destination-price{
+    font-weight:600;
+    color:var(--green);
+}
+
+.destination-buy{
+    text-decoration:none;
+    background:var(--blue);
+    color:white;
+    padding:0.4rem 1rem;
+    border-radius:1rem;
+    transition:0.3s;
+}
+
+.destination-buy:hover{
+    background:var(--green);
+    transform:translateY(-2px);
+}

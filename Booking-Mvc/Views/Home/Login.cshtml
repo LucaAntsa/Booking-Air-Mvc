@@ -1,0 +1,55 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="form-Sign mx-5">
+    <div class="form-disagn">
+        <h2 class="form-title">
+            Welcome back to BookingAir
+        </h2>
+        <p class="form-text">
+            Log in to your account and continue booking flights quickly and securely.
+        </p>
+
+        <a class="btn-sign" asp-controller="Home" asp-action="Sign">
+            Create account
+        </a>
+
+        <p class="form-separator">or continue with</p>
+        <div class="form-social">
+            <a href="#" class="form-social-btn form-facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="#" class="form-social-btn form-google">
+                <i class="fa-brands fa-google"></i>
+            </a>
+
+            <a href="#" class="form-social-btn form-binance">
+                <i class="fa-brands fa-btc"></i>
+            </a>
+        </div>
+    </div>
+    <form action="" class="form-Sign-user">
+        <h3 style="text-align: center;" class="mt-2 mb-0">Connect account</h3>
+        <p style="text-align: center;">Lorem, ipsum dolor sit amet consectetur adipisicing </p>
+
+        <div class="d-flex part-form mx-5 mb-2">
+            <div class="flex-fill">
+                <label for="" >email</label>
+                <br>
+                <input type="email">
+            </div>
+        </div>
+        <div class="d-flex part-form mx-5 mb-2">
+            <div class="flex-fill">
+                <label for="">Password</label>
+                <br>
+                <input type="text">
+            </div>
+        </div>
+        <div class="text-center my-2">
+            <button type="submit" class="btn-sub-create">Connect</button>
+        </div>
+    </form>
+</div>
