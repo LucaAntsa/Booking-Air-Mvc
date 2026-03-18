@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Booking_Mvc</title>
+    <title>@ViewData["Title"] - BookingAir</title>
 
     <script type="importmap"></script>
 
@@ -14,100 +14,154 @@
     <link rel="stylesheet" href="~/Booking_Mvc.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
-<body>
-    <header class="header-main pb-2">
-        <nav class="px-3 navbar navbar-expand-sm navbar-light header-navbar">
-            <div class="container-fluid header-container">
+<body class="layout-body">
 
-                <!-- LOGO -->
-                <a class="navbar-brand header-logo" asp-area="" asp-controller="Home" asp-action="Index">
-                    <i class="fa-solid fa-plane header-icon"></i> BookingAir
-                </a>
+    <div class="layout-wrapper">
+        <header class="header-main">
+            <nav class="px-3 navbar navbar-expand-lg navbar-light header-navbar">
+                <div class="container-fluid header-container">
 
-                <button class="navbar-toggler header-toggle" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <!-- LOGO -->
+                    <a class="navbar-brand header-logo" asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fa-solid fa-plane header-icon"></i> BookingAir
+                    </a>
 
-                <div class="navbar-collapse collapse header-menu">
+                    <button class="navbar-toggler header-toggle" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#mainNavbar"
+                            aria-controls="mainNavbar"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                    <!-- MENU CENTRE -->
-                    <ul class="navbar-nav header-center">
-                        <li class="nav-item">
-                            <a class="nav-link header-link" asp-controller="Home" asp-action="Index">
-                                <i class="fa-solid fa-house header-icon"></i> Home
-                            </a>
-                        </li>
+                    <div class="collapse navbar-collapse header-menu" id="mainNavbar">
 
-                        <li class="nav-item">
-                            <a class="nav-link header-link" asp-controller="Home" asp-action="Privacy">
-                                <i class="fa-solid fa-shield-halved header-icon"></i> Privacy
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link header-link" asp-controller="Destinations" asp-action="Index">
-                                <i class="fa-solid fa-location-dot header-icon"></i> Destinations
-                            </a>
-                        </li>
-
-                        <li class="nav-item header-search-li">
-                            <form class="d-flex header-search-form" role="search">
-                                <input class="form-control header-search-input" type="search" placeholder="Search flights..." aria-label="Search" />
-                                <button class="btn header-search-btn" type="submit">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </button>
-                            </form>
-                        </li>
-                    </ul>
-
-                    <!-- MENU DROITE -->
-                    <ul class="navbar-nav header-right">
-                        @if (User.Identity != null && User.Identity.IsAuthenticated)
-                        {
+                        <!-- MENU CENTRE -->
+                        <ul class="navbar-nav header-center">
                             <li class="nav-item">
-                                <span class="nav-link header-link">
-                                    <i class="fa-solid fa-user header-icon"></i> Bonjour @User.Identity.Name
-                                </span>
-                            </li>
-
-                            <li class="nav-item px-2">
-                                <a class="nav-link header-login" asp-controller="Account" asp-action="Logout">
-                                    <i class="fa-solid fa-right-from-bracket header-icon"></i> Déconnexion
+                                <a class="nav-link header-link" asp-controller="Home" asp-action="Index">
+                                    <i class="fa-solid fa-house header-icon"></i> Home
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link header-link" asp-controller="Destinations" asp-action="Index">
+                                    <i class="fa-solid fa-location-dot header-icon"></i> Destinations
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link header-link" asp-controller="Home" asp-action="Privacy">
+                                    <i class="fa-solid fa-shield-halved header-icon"></i> Privacy
+                                </a>
+                            </li>
+
+                            <li class="nav-item header-search-li">
+                                <form class="d-flex header-search-form" role="search">
+                                    <input class="form-control header-search-input"
+                                           type="search"
+                                           placeholder="Search flights..."
+                                           aria-label="Search" />
+                                    <button class="btn header-search-btn" type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+
+                        <!-- MENU DROITE -->
+                        <ul class="navbar-nav header-right">
+                            @if (User.Identity != null && User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <span class="nav-link header-link header-user">
+                                        <i class="fa-solid fa-user header-icon"></i> Bonjour @User.Identity.Name
+                                    </span>
+                                </li>
+
+                                <li class="nav-item px-lg-2">
+                                    <a class="nav-link header-login" asp-controller="Account" asp-action="Logout">
+                                        <i class="fa-solid fa-right-from-bracket header-icon"></i> Déconnexion
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link header-link" asp-controller="Account" asp-action="Register">
+                                        <i class="fa-solid fa-user-plus header-icon"></i> Sign
+                                    </a>
+                                </li>
+
+                                <li class="nav-item px-lg-2">
+                                    <a class="nav-link header-login" asp-controller="Account" asp-action="Login">
+                                        <i class="fa-solid fa-right-to-bracket header-icon"></i> Login
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main role="main" class="main-content">
+            <div class="main-container-custom">
+                @RenderBody()
+            </div>
+        </main>
+
+        <footer class="footer-custom">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h5><i class="fa-solid fa-plane-departure me-2"></i>BookingAir</h5>
+                        <p>
+                            Votre partenaire pour des réservations de vols simples,
+                            rapides et sécurisées.
+                        </p>
+                    </div>
+
+                    <div class="footer-links">
+                        <h6>Navigation</h6>
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                        <a asp-controller="Destinations" asp-action="Index">Destinations</a>
+                        <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </div>
+
+                    <div class="footer-links">
+                        <h6>Compte</h6>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <a asp-controller="Account" asp-action="Logout">Déconnexion</a>
                         }
                         else
                         {
-                            <li class="nav-item">
-                                <a class="nav-link header-link" asp-controller="Account" asp-action="Register">
-                                    <i class="fa-solid fa-user-plus header-icon"></i> Sign
-                                </a>
-                            </li>
-
-                            <li class="nav-item px-2">
-                                <a class="nav-link header-login" asp-controller="Account" asp-action="Login">
-                                    <i class="fa-solid fa-right-to-bracket header-icon"></i> Login
-                                </a>
-                            </li>
+                            <a asp-controller="Account" asp-action="Login">Login</a>
+                            <a asp-controller="Account" asp-action="Register">Sign</a>
                         }
-                    </ul>
+                    </div>
 
+                    <div class="footer-social">
+                        <h6>Follow us</h6>
+                        <div class="footer-social-icons">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <span>&copy; 2026 - BookingAir - All rights reserved</span>
+                    <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <main role="main" class="main-content">
-        @RenderBody()
-    </main>
-
-    <footer class="border-top footer text-muted mt-4">
-        <div class="container py-3">
-            &copy; 2026 - BookingAir - All rights reserved
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-        
-    </footer>
+        </footer>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

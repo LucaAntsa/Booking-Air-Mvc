@@ -1,38 +1,13 @@
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-
-.main-content {
-    min-height: calc(100vh - 140px);
-    padding: 20px;
 }
 
 :root{
@@ -49,21 +24,82 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  background: #f8faf8;
+}
+
 a{
   text-decoration: none;
 }
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+/* =========================
+   LAYOUT GENERAL
+========================= */
+
+.layout-body {
+  margin: 0;
+  padding: 0;
+  background: #f8faf8;
+}
+
+.layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  min-height: calc(100vh - 140px);
+  padding: 30px 0;
+}
+
+.main-container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================
+   HOME / BANNER
+========================= */
 
 .fond-acc{
   height: 350px;
   background-image: url(../img/fond1.jpg);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
+  background-position: center;
   align-content: center;
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 /* =========================
    REGISTER
 ========================= */
+
 .form-Sign{
   display: flex;
   flex-wrap: wrap;
@@ -272,6 +308,7 @@ a{
 /* =========================
    LOGIN
 ========================= */
+
 .auth-wrapper{
   min-height: 90vh;
   display: flex;
@@ -279,6 +316,7 @@ a{
   justify-content: center;
   padding: 40px 20px;
   background: linear-gradient(135deg, var(--blue), var(--green));
+  border-radius: 1rem;
 }
 
 .auth-card{
@@ -469,8 +507,120 @@ a{
 }
 
 /* =========================
+   HEADER USER
+========================= */
+
+.header-user{
+  background: rgba(165, 214, 167, 0.18);
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer-custom {
+  background: linear-gradient(135deg, var(--blue), var(--green));
+  color: white;
+  margin-top: 40px;
+  padding-top: 45px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 30px;
+  padding-bottom: 30px;
+}
+
+.footer-brand h5,
+.footer-links h6,
+.footer-social h6 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.footer-brand p {
+  line-height: 1.8;
+  opacity: 0.92;
+  max-width: 320px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-social-icons a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+  background: white;
+  color: var(--green);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 18px 0 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.footer-bottom a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
+
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 900px){
   .auth-card{
     flex-direction: column;
@@ -489,6 +639,14 @@ a{
 }
 
 @media (max-width: 768px){
+  .main-content {
+    padding: 20px 0;
+  }
+
+  .main-container-custom {
+    padding: 0 12px;
+  }
+
   .register-page{
     flex-direction: column;
   }
@@ -514,6 +672,16 @@ a{
     margin: 0.8rem;
     min-width: unset;
   }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 576px){
@@ -532,5 +700,9 @@ a{
   .modern-input,
   .btn-login-modern{
     height: 48px;
+  }
+
+  .fond-acc{
+    height: 240px;
   }
 }
