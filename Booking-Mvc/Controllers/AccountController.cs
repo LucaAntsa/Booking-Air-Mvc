@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Booking_Mvc.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -43,10 +44,13 @@ public class AccountController : Controller
         }
 
         var responseJson = await response.Content.ReadAsStringAsync();
-        var user = JsonSerializer.Deserialize<User>(responseJson, new JsonSerializerOptions
+        var options = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
-        });
+        };
+            options.Converters.Add(new JsonStringEnumConverter());
+
+        var user = JsonSerializer.Deserialize<User>(responseJson, options);
 
         if (user == null)
         {

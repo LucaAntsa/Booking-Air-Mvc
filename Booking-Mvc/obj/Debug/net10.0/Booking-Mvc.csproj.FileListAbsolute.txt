@@ -111,7 +111,6 @@ C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\rjsmcshtml.
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\scopedcss\bundle\Booking-Mvc.styles.css
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\scopedcss\projectbundle\Booking-Mvc.bundle.scp.css
-C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\muuzllmf37-{0}-u85paixwi0-u85paixwi0.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\whhn7zhyex-{0}-cf0ci07xus-cf0ci07xus.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\vd0jcgj5fm-{0}-8tf954d0uu-8tf954d0uu.gz
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\pyezxcd7nc-{0}-bhj0ln4p7b-bhj0ln4p7b.gz
@@ -190,3 +189,4 @@ C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\Booking-Mvc
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\Booking-Mvc.genruntimeconfig.cache
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\ref\Booking-Mvc.dll
 C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\w7ylsyf4t7-{0}-03o1qb971k-03o1qb971k.gz
+C:\Users\antsa\Desktop\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\muuzllmf37-{0}-sa4oylwvev-sa4oylwvev.gz
