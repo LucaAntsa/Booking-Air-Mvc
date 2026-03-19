@@ -8,18 +8,20 @@
     <div class="auth-card">
         <div class="auth-left">
             <div class="auth-brand">
-                <h2>BookingAir</h2>
+                <h2><i class="fa-solid fa-plane-departure me-2"></i>BookingAir</h2>
                 <span class="brand-line"></span>
             </div>
 
             <div class="auth-content">
                 <h1>Bienvenue !</h1>
                 <p class="auth-description">
-                    Connectez-vous à votre compte pour gérer vos réservations, consulter vos vols et profiter d’une expérience de voyage simple et rapide.
+                    Connectez-vous à votre compte pour gérer vos réservations,
+                    consulter vos vols et profiter d’une expérience de voyage
+                    simple, rapide et sécurisée.
                 </p>
 
                 <a class="btn-switch-auth" asp-controller="Account" asp-action="Register">
-                    Create account
+                    <i class="fa-solid fa-user-plus me-2"></i>Create account
                 </a>
 
                 <div class="auth-divider">
@@ -44,16 +46,16 @@
             <form asp-action="Login" method="post" class="auth-form">
                 <div class="auth-form-header">
                     <h3>Sign in</h3>
-                    <p>Entrez vos informations pour accéder à votre espace personnel.</p>
+                    <p>Entrez vos identifiants pour accéder à votre espace BookingAir.</p>
                 </div>
 
                 <div asp-validation-summary="All" class="text-danger text-center mb-3"></div>
 
                 <div class="form-group-modern">
-                    <label asp-for="Email" class="form-label">Email</label>
+                    <label asp-for="Email" class="form-label">Email address</label>
                     <div class="input-icon-group">
                         <i class="fa-regular fa-envelope input-icon"></i>
-                        <input asp-for="Email" type="email" class="form-control custom-input modern-input" placeholder="Enter your email" />
+                        <input asp-for="Email" type="email" class="form-control modern-input" placeholder="Enter your email" />
                     </div>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
@@ -62,7 +64,7 @@
                     <label asp-for="Password" class="form-label">Password</label>
                     <div class="input-icon-group">
                         <i class="fa-solid fa-lock input-icon"></i>
-                        <input asp-for="Password" type="password" class="form-control custom-input modern-input" placeholder="Enter your password" />
+                        <input asp-for="Password" type="password" class="form-control modern-input" placeholder="Enter your password" />
                     </div>
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
@@ -79,7 +81,7 @@
                 </div>
 
                 <button type="submit" class="btn-login-modern">
-                    Connect
+                    <i class="fa-solid fa-right-to-bracket me-2"></i>Connect
                 </button>
             </form>
         </div>
