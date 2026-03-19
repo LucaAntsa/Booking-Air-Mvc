@@ -1,0 +1,82 @@
+:root{
+  --blue: #2e7d32;      /* vert principal */
+  --green: #1b5e20;     /* vert foncé */
+  --light-green: #a5d6a7; /* vert clair */
+  --white: #ffffff;
+  --gray-text: #555;
+}
+
+.profile-page-modern{
+  max-width:1200px;
+  margin:2rem auto;
+  font-family:'Segoe UI', sans-serif;
+  padding:0 1rem;
+}
+
+/* HEADER */
+.profile-header-modern{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:2rem;
+}
+
+.profile-name-modern{
+  font-size:2rem;
+  font-weight:700;
+  color:var(--green);
+  margin-bottom:0.2rem;
+}
+
+.profile-username-modern{
+  font-size:1rem;
+  color:var(--blue);
+}
+
+.btn-edit-profile-modern{
+  background:var(--blue);
+  color:var(--white);
+  padding:0.5rem 1.2rem;
+  border-radius:0.7rem;
+  border:none;
+  font-weight:500;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+
+.btn-edit-profile-modern:hover{
+  background:var(--green);
+  transform:translateY(-2px);
+}
+
+/* GRID */
+.profile-grid-modern{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:1.5rem;
+}
+
+/* CARDS */
+.profile-card-modern{
+  background:var(--white);
+  border-radius:1rem;
+  padding:1.2rem;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+  transition:all 0.3s;
+}
+
+.profile-card-modern:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.profile-card-modern h3{
+  font-size:1rem;
+  color:var(--green);
+  margin-bottom:0.5rem;
+}
+
+.profile-card-modern p{
+  font-size:0.9rem;
+  color:var(--gray-text);
+}
