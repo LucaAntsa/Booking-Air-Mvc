@@ -1,0 +1,112 @@
+@model Booking_Mvc.Models.DashboardViewModel
+@{
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<div class="container my-4">
+
+    <h2 class="mb-4 text-success">Dashboard</h2>
+
+    <!-- Statistiques -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Total Users</h5>
+                    <p class="card-text">@Model.TotalUsers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Active Users</h5>
+                    <p class="card-text">@Model.ActiveUsers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Inactive Users</h5>
+                    <p class="card-text">@Model.InactiveUsers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Connected Users</h5>
+                    <p class="card-text">@Model.ConnectedUsers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Graphique circulaire -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <canvas id="userChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Liste utilisateurs -->
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-success">
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var user in Model.Users)
+                {
+                    <tr>
+                        <td>@user.Nom</td>
+                        <td>@user.Email</td>
+                        <td>@user.Status</td>
+                        <td>@user.Role</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <nav>
+        <ul class="pagination justify-content-center">
+            @for(int i=1; i<=Model.TotalPages; i++)
+            {
+                <li class="page-item @(i==Model.PageIndex?"active":"")">
+                    <a class="page-link" asp-action="Dashboard" asp-route-page="@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('userChart').getContext('2d');
+    const userChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Active', 'Inactive'],
+            datasets: [{
+                label: 'Users',
+                data: [@Model.ActiveUsers, @Model.InactiveUsers],
+                backgroundColor: ['#2e7d32', '#a5d6a7'], // couleurs BookingAir vert
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom' }
+            }
+        }
+    });
+</script>

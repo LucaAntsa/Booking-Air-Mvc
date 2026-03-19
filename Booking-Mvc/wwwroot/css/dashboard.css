@@ -1,0 +1,46 @@
+.dashboard-container{
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Carte statistiques */
+.dashboard-card{
+    background:white;
+    border-radius:1rem;
+    padding:1rem 1.5rem;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.dashboard-card-label{
+    font-size:0.85rem;
+    color:#2e7d32;
+    margin-bottom:0.2rem;
+}
+
+.dashboard-card-value{
+    font-size:1.8rem;
+    font-weight:600;
+    color:var(--green);
+}
+
+/* Table user */
+.liste-table th{
+    background:var(--red);
+    color:var(--green);
+    font-weight:600;
+}
+
+.liste-table td{
+    vertical-align:middle;
+}
+
+.liste-table .badge{
+    font-size:0.75rem;
+    padding:0.35em 0.6em;
+    border-radius:0.5rem;
+}

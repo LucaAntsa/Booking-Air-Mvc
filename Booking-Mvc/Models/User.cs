@@ -3,7 +3,7 @@ using Booking_Mvc.Enums;
 namespace Booking_Mvc.Models;
 
 public class User{
- public string? Id { get; set; }
+public string? Id { get; set; }
     public string Nom { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string Adresse { get; set; } = null!;

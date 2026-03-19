@@ -382,3 +382,4 @@ C:\MICHAEL\DOTNET\projet\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\refint\Bo
 C:\MICHAEL\DOTNET\projet\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\Booking-Mvc.pdb
 C:\MICHAEL\DOTNET\projet\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\Booking-Mvc.genruntimeconfig.cache
 C:\MICHAEL\DOTNET\projet\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\ref\Booking-Mvc.dll
+C:\MICHAEL\DOTNET\projet\Booking-Air-Mvc\Booking-Mvc\obj\Debug\net10.0\compressed\jlel4fmfor-{0}-82xl1i5xks-82xl1i5xks.gz
