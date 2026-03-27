@@ -29,12 +29,12 @@
         {
             <tr>
                 <td>@item.Lieu_Depart</td>
-                <td>@item.Lieu_Arriver</td>
+                <td>@item.Lieu_Depart</td>
                 <td>@item.Heur_Depart</td>
                 <td>@item.Duree</td>
                 <td>@item.Date_Depart</td>
                 <td>@item.Date_Arriver</td>
-                <td>@item.Prix</td>
+                <td>@item.Prix$</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Modifier</a>
                     <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Supprimer</a>

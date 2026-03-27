@@ -1,3 +1,4 @@
+@model List<Booking_Mvc.Models.Destination>
 @{
     ViewData["Title"] = "Destinations";
 }
@@ -46,51 +47,32 @@
 <section class="liste-grid container mt-4">
     @* Boucle Razor pour les destinations *@
     @* Exemple fixe, à remplacer par une boucle foreach *@
+    @foreach (var item in Model)
+    {
 
-    <div class="destination-card ">
-        <div class="destination-top">
-            <div class="destination-route">
-                <p class="destination-label">Route</p>
-                <p class="destination-value">Tana → Paris</p>
-            </div>
-            <div class="destination-duration">
-                <i class="fa-solid fa-clock"></i>
-                <span>08:00 / 5H</span>
-            </div>
-        </div>
-
-        <div class="destination-dates">
-            <p><span>Departure</span> 12 Jun 2026</p>
-            <p><span>Arrival</span> 12 Jun 2026 - 13:00</p>
-        </div>
-
-        <div class="destination-bottom">
-            <p class="destination-price">$500</p>
-            <a class="destination-buy" asp-controller="Home" asp-action="Billet" asp-area="">Reserver un vol</a>
-        </div>
-    </div>
     <div class="destination-card">
         <div class="destination-top">
             <div class="destination-route">
                 <p class="destination-label">Route</p>
-                <p class="destination-value">Tana → Paris</p>
+                <p class="destination-value">@item.Lieu_Depart → @item.Lieu_Depart</p>
             </div>
             <div class="destination-duration">
                 <i class="fa-solid fa-clock"></i>
-                <span>08:00 / 5H</span>
+                <span>@item.Heur_Depart / @item.Duree</span>
             </div>
         </div>
 
         <div class="destination-dates">
-            <p><span>Departure</span> 12 Jun 2026</p>
-            <p><span>Arrival</span> 12 Jun 2026 - 13:00</p>
+            <p><span>Departure</span> @item.Date_Depart - @item.Heur_Depart</p>
+            <p><span>Arrival</span> @item.Date_Arriver</p>
         </div>
 
         <div class="destination-bottom">
-            <p class="destination-price">$500</p>
+            <p class="destination-price">$@item.Prix</p>
             <a class="destination-buy" asp-controller="Home" asp-action="Billet" asp-area="">Reserver un vol</a>
         </div>
     </div>
 
+    }
     @* Duplique les autres cartes selon les données *@
 </section>

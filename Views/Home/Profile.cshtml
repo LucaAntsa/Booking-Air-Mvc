@@ -3,19 +3,14 @@
     <!-- HEADER DU PROFIL -->
     <header class="profile-header-modern">
         <div>
-            <h1 class="profile-name-modern">John Doe</h1>
-            <p class="profile-username-modern">johndoe</p>
+            <h1 class="profile-name-modern">Nom: @User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value</h1>
+            <p class="profile-username-modern">Role: @User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</p>
         </div>
         <button class="btn-edit-profile-modern">Edit Profile</button>
     </header>
 
     <!-- GRID DU PROFIL -->
     <section class="profile-grid-modern">
-
-        <div class="profile-card-modern">
-            <h3>Full Name</h3>
-            <p>John Doe</p>
-        </div>
 
         <div class="profile-card-modern">
             <h3>Email</h3>

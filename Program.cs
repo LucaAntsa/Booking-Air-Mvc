@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Ajout des services MVC
 // -------------------------
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
 
 // -------------------------
 // Configuration HttpClient pour appeler ton WebAPI
@@ -39,6 +40,11 @@ builder.Services.AddAuthorization();
 // -------------------------
 builder.Services.AddScoped<UserService>(); // service que je t'avais montré pour Dashboard
 
+//--------------------------
+// Session + Token
+//--------------------------
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // -------------------------
@@ -57,6 +63,7 @@ app.UseRouting();
 
 app.UseAuthentication();  // Toujours avant UseAuthorization
 app.UseAuthorization();
+app.UseSession();
 
 // -------------------------
 // Routes MVC
