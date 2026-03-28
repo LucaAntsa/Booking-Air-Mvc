@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Booking_Mvc.Models;
+using Booking_Mvc.Dto;
 
 namespace Booking_Mvc.Controllers
 {
@@ -46,9 +47,38 @@ namespace Booking_Mvc.Controllers
         {
             return View();
         }
-        public IActionResult Billet()
+        public async Task<IActionResult> Billet(string idDestination)
         {
-            return View();
+            var client = CreateApiClient();
+
+            //récupérer la destination
+            var response = await client.GetAsync($"api/destinations/{idDestination}");
+
+            if (!response.IsSuccessStatusCode)
+                return NotFound();
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            var destination = JsonSerializer.Deserialize<Destination>(json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            // 🔥 créer un billet temporaire (non enregistré) avec le vrai prix
+            var billet = new Billet
+            {
+                Id_Destination = idDestination,
+                Prix = destination.Prix, // <--- ici
+                Total_Billet = 1
+            };
+
+            var model = new BilletAvecDestinationDto
+            {
+                Id_Destination = idDestination,
+                Prix = billet.Prix,
+                Total_Billet = billet.Total_Billet,
+                Destination = destination
+            };
+
+            return View("~/Views/Home/Billet.cshtml",model);
         }
         public async Task<IActionResult> ListeDestination()
         {

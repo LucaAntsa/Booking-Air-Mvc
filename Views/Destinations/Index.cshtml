@@ -37,6 +37,7 @@
                 <td>@item.Prix$</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Modifier</a>
+                    <a class="btn btn-primary btn-sm" asp-controller="Billets" asp-action="Create" asp-route-idDestination="@item.Id" asp-route-prixBillet="@item.Prix" asp-area="">Create billets</a>
                     <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Supprimer</a>
                 </td>
             </tr>

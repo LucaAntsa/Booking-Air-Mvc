@@ -1,0 +1,35 @@
+@model IEnumerable<Booking_Mvc.Dto.BilletAvecDestinationDto>
+
+@{
+    ViewData["Title"] = "Liste des billets";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<h2>Liste des billets</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Numéro billet</th>
+            <th>Prix</th>
+            <th>Type</th>
+            <th>Destination</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Num_Billet</td>
+                <td>@item.Prix</td>
+                <td>@item.Type</td>
+                <td>@item.Destination?.Lieu_Depart - @item.Destination?.Lieu_Arriver</td>
+                <td>
+                    <a class="btn btn-primary btn-sm asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,4 +1,9 @@
 ﻿@model List<Booking_Mvc.Models.Destination>
+@using System.Security.Claims
+@{
+    var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+}
+
 @{
     ViewData["Title"] = "Accueil";
 }
@@ -27,18 +32,18 @@
                     </div>
                     <div class="destination-duration">
                         <i class="fa-solid fa-clock"></i>
-                        <span>@item.Heur_Depart / @item.Duree</span>
+                        <span>depart: @item.Heur_Depart /durée @item.Duree</span>
                     </div>
                 </div>
 
                 <div class="destination-dates">
-                    <p><span>Departure</span> @item.Date_Depart - @item.Heur_Depart</p>
-                    <p><span>Arrival</span> @item.Date_Arriver</p>
+                    <p><span>Departure</span>@item.Heur_Depart - @item.Date_Depart.ToString("dd/MM/yyyy")</p>
+                    <p><span>Arrival</span>@item.Date_Arriver.ToString("dd/MM/yyyy")</p>
                 </div>
 
                 <div class="destination-bottom">
                     <p class="destination-price">$@item.Prix</p>
-                    <a class="destination-buy" asp-controller="Home" asp-action="Billet" asp-area="">Reserver un vol</a>
+                    <a class="destination-buy" asp-controller="Home" asp-action="Billet" asp-route-idDestination="@item.Id" asp-route-prix="@item.Prix" asp-area="">Reserver un vol</a>
                 </div>
             </div>
 

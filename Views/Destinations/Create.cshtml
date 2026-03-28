@@ -1,4 +1,5 @@
 @model Booking_Mvc.Models.Destination
+@using Booking_Mvc.Enums
 
 @{
     ViewData["Title"] = "Créer destination";
@@ -43,7 +44,9 @@
 
         <div class="mb-3">
             <label asp-for="Nom_Vol" class="form-label"></label>
-            <input asp-for="Nom_Vol" class="form-control" />
+            <select asp-for="Nom_Vol" class="form-select" asp-items="Html.GetEnumSelectList<NomVol>()">
+                <option value="">-- Sélectionner un vol --</option>
+            </select>
         </div>
 
         <div class="mb-3">

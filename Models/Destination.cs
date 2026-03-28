@@ -4,7 +4,6 @@ namespace Booking_Mvc.Models;
 
 public class Destination
 {
-  
     public string? Id { get; set; }
     public string Lieu_Depart { get; set; } = null!;
     public string Lieu_Arriver { get; set; } = null!;

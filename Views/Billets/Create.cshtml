@@ -1,0 +1,44 @@
+@model Booking_Mvc.Models.Billet
+
+@{
+    ViewData["Title"] = "Créer billet";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Créer un billet</h2>
+
+    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+    <form asp-action="Create" method="post">
+
+        <!-- 🔥 ID Destination caché -->
+        <input type="hidden" asp-for="Id_Destination"/>
+
+        <div class="mb-3">
+            <label asp-for="Num_Billet" class="form-label">Numero UID</label>
+            <input asp-for="Num_Billet" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Total_Billet" class="form-label">Total billets</label>
+            <input asp-for="Total_Billet" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Type" class="form-label"></label>
+            <select asp-for="Type"
+                    asp-items="Html.GetEnumSelectList<Booking_Mvc.Enums.TypeClasse>()"
+                    class="form-control">
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Prix" class="form-label"></label>
+            <input asp-for="Prix" class="form-control"/>
+        </div>
+
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+        <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+    </form>
+</div>
