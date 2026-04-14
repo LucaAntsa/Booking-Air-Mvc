@@ -1,0 +1,156 @@
+@model Booking_Mvc.ViewModel.ReserverViewModel
+
+@{
+ViewData["Title"] = "Réservation";
+}
+
+<div class="container my-4">
+
+<!-- HEADER -->
+<div class="mb-4">
+    <h3 class="fw-bold">Réserver votre billet</h3>
+    <small class="text-muted">Confirmez votre voyage en quelques secondes</small>
+</div>
+
+<div class="row g-4">
+
+    <!-- LEFT: INFOS VOYAGE -->
+    <div class="col-lg-7">
+
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body p-4">
+
+                <!-- ROUTE -->
+                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                    <div>
+                        <small class="text-muted">Route</small>
+                        <h4 class="fw-bold mb-0">
+                            @Model.Destination.Lieu_Depart → @Model.Destination.Lieu_Arriver
+                        </h4>
+                    </div>
+
+                    <div class="text-end">
+                        <small class="text-muted">Durée</small>
+                        <h5 class="fw-semibold">@Model.Destination.Duree</h5>
+                    </div>
+
+                </div>
+
+                <hr />
+
+                <!-- DETAILS -->
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <small class="text-muted">Date de départ</small>
+                        <div class="fw-semibold">
+                            @Model.Destination.Date_Depart
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <small class="text-muted">Heure de départ</small>
+                        <div class="fw-semibold">
+                            @Model.Destination.Heur_Depart
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT: RESERVATION -->
+    <div class="col-lg-5">
+
+        <div class="card border-0 shadow-sm rounded-4 sticky-top" style="top: 20px;">
+            <div class="card-body p-4">
+
+                <form asp-controller="Reserver" asp-action="Acheter" method="post">
+
+                    <!-- hidden -->
+                    <input type="hidden" asp-for="Destination.Id" />
+                    <input type="hidden" id="basePrice" value="@Model.Billet.Prix" />
+
+                    <!-- PRICE -->
+                    <div class="mb-4">
+                        <small class="text-muted">Prix par billet</small>
+                        <h3 class="fw-bold text-success">
+                            <span id="totalPrice">@Model.Billet.Prix</span> $
+                        </h3>
+                    </div>
+
+                    <!-- QUANTITY -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Nombre de billets</label>
+
+                        <input type="number"
+                               id="qty"
+                               asp-for="Billet.Total_Billet"
+                               class="form-control form-control-lg"
+                               min="1"
+                               value="1" />
+                    </div>
+
+                    <!-- SUMMARY -->
+                    <div class="alert alert-light border rounded-3 mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Sous-total</span>
+                            <span id="subTotal">0 $</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <span>Réduction</span>
+                            <span id="discount">0%</span>
+                        </div>
+                    </div>
+
+                    <!-- BUTTON -->
+                    <button type="submit" class="btn btn-primary w-100 btn-lg">
+                        Réserver maintenant
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+    const qtyInput = document.getElementById("qty");
+    const basePrice = parseFloat(document.getElementById("basePrice").value);
+    const totalPrice = document.getElementById("totalPrice");
+    const subTotal = document.getElementById("subTotal");
+    const discount = document.getElementById("discount");
+
+    function updatePrice() {
+        let qty = parseInt(qtyInput.value);
+
+        if (isNaN(qty) || qty < 1) qty = 1;
+
+        let price = basePrice * qty;
+
+        let discountValue = 0;
+
+        // 🔥 réduction
+        if (qty > 2) {
+            discountValue = 10;
+            price = price * 0.9;
+        }
+
+        totalPrice.innerText = price.toFixed(0);
+        subTotal.innerText = (basePrice * qty).toFixed(0) + " $";
+        discount.innerText = discountValue + "%";
+    }
+
+    qtyInput.addEventListener("input", updatePrice);
+    updatePrice();
+</script>

@@ -1,0 +1,40 @@
+@model Booking_Mvc.Models.Billet
+
+@{
+    ViewData["Title"] = "Supprimer billet";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Supprimer un billet</h2>
+
+    <div class="alert alert-warning">
+        Voulez-vous vraiment supprimer ce billet ?
+    </div>
+
+    <dl class="row">
+        <dt class="col-sm-3">Numéro billet</dt>
+        <dd class="col-sm-9">@Model.Num_Billet</dd>
+
+        <dt class="col-sm-3">Prix</dt>
+        <dd class="col-sm-9">@Model.Prix</dd>
+
+        <dt class="col-sm-3">Destination</dt>
+        <dd class="col-sm-9">@Model.Id_Destination</dd>
+
+        <dt class="col-sm-3">Quantité</dt>
+        <dd class="col-sm-9">@Model.Total_Billet</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input asp-for="Id" type="hidden" />
+
+        <button type="submit" class="btn btn-danger">
+            Supprimer
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Annuler
+        </a>
+    </form>
+</div>

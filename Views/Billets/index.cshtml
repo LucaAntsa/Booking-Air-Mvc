@@ -1,35 +1,88 @@
 @model IEnumerable<Booking_Mvc.Dto.BilletAvecDestinationDto>
 
 @{
-    ViewData["Title"] = "Liste des billets";
-    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+ViewData["Title"] = "Liste des billets";
+Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<h2>Liste des billets</h2>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold">🎫 Liste des billets</h3>
+</div>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Numéro billet</th>
-            <th>Prix</th>
-            <th>Type</th>
-            <th>Destination</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-0">
+
+    <table class="table align-middle mb-0">
+        <thead class="bg-light">
             <tr>
-                <td>@item.Num_Billet</td>
-                <td>@item.Prix</td>
-                <td>@item.Type</td>
-                <td>@item.Destination?.Lieu_Depart - @item.Destination?.Lieu_Arriver</td>
-                <td>
-                    <a class="btn btn-primary btn-sm asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                <th>N° du vol</th>
+                <th>Prix</th>
+                <th>Type</th>
+                <th>Trajet</th>
+                <th class="text-end">Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.OrderBy(x => int.Parse(x.Num_Billet)))
+            {
+                <tr class="border-top">
+
+                    <!-- NUMERO -->
+                    <td class="fw-semibold text-primary">
+                        @item.Num_Billet
+                    </td>
+
+                    <!-- PRIX -->
+                    <td>
+                        <span class="badge bg-success-subtle text-success fw-semibold">
+                            @item.Prix $
+                        </span>
+                    </td>
+
+                    <!-- TYPE -->
+                    <td>
+                        <span class="badge bg-primary-subtle text-primary">
+                            @item.Type
+                        </span>
+                    </td>
+
+                    <!-- TRAJET -->
+                    <td>
+                        <div class="d-flex flex-column">
+                            <span class="fw-semibold">
+                                @item.Destination?.Lieu_Depart
+                            </span>
+                            <small class="text-muted">
+                                → @item.Destination?.Lieu_Arriver
+                            </small>
+                        </div>
+                    </td>
+
+                    <!-- ACTIONS -->
+                    <td class="text-end">
+                        <div class="d-flex justify-content-end gap-2">
+
+                            <a class="btn btn-light btn-sm border"
+                               asp-action="Edit"
+                               asp-route-id="@item.Id">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <a class="btn btn-light btn-sm border text-danger"
+                               asp-action="Delete"
+                               asp-route-id="@item.Id">
+                                <i class="bi bi-trash"></i>
+                            </a>
+
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+</div>

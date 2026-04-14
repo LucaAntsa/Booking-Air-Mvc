@@ -26,6 +26,92 @@ namespace Booking_Mvc.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult VerifyOtp()
+        {
+            return View();
+        }
+        // GET: /Account/Register
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+        // Page AccessDenied
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+         // ------------------------------------------
+        // Méthode réutilisable pour API avec JWT
+        // ------------------------------------------
+        private HttpClient CreateApiClient()
+        {
+            var client = _httpClientFactory.CreateClient("BookingAPI");
+
+            // Récupère le JWT depuis les claims
+            var token = User.FindFirst("Jwt")?.Value;
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", token);
+            }
+
+            return client;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyOtp(string code)
+        {
+            var email = HttpContext.Session.GetString("Email");
+
+            if (string.IsNullOrEmpty(email))
+            {
+                ModelState.AddModelError("", "Session expirée");
+                return View();
+            }
+
+            var client = _httpClientFactory.CreateClient("BookingAPI");
+
+            var payload = new
+            {
+                Email = email,
+                Code = code
+            };
+
+            var json = JsonSerializer.Serialize(payload);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("api/auth/verify-otp", content);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                ModelState.AddModelError("", "OTP invalide");
+                return View();
+            }
+
+            var responseJson = await response.Content.ReadAsStringAsync();
+            var user = JsonSerializer.Deserialize<AuthResponseDto>(responseJson,new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id ?? ""),
+                new Claim(ClaimTypes.Name, user.Nom),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
+                new Claim("Jwt", user.Token)
+            };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(identity)
+            );
+
+            return RedirectToAction("Index", "Home");
+        }
+
         // POST: /Account/Login
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -46,48 +132,11 @@ namespace Booking_Mvc.Controllers
                 return View(model);
             }
 
-            var responseJson = await response.Content.ReadAsStringAsync();
+            // 🔥 STOCKAGE PROPRE
+            HttpContext.Session.SetString("Email", model.Email);
 
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-            options.Converters.Add(new JsonStringEnumConverter());
-
-            // Récupération du token JWT et infos utilisateur
-            var user = JsonSerializer.Deserialize<AuthResponseDto>(responseJson, options);
-
-            if (user == null)
-            {
-                ModelState.AddModelError("", "Erreur lors de la connexion.");
-                return View(model);
-            }
-
-            // Création des claims avec JWT
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id ?? ""),
-                new Claim(ClaimTypes.Name, user.Nom),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.Role.ToString()),
-                new Claim("Jwt", user.Token) // Stocke le JWT pour appels API
-            };
-
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var principal = new ClaimsPrincipal(identity);
-
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("VerifyOtp");
         }
-
-        // GET: /Account/Register
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-
         // POST: /Account/Register
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
@@ -143,31 +192,6 @@ namespace Booking_Mvc.Controllers
             // delete cokie cote mvc
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
-        }
-
-        // Page AccessDenied
-        public IActionResult AccessDenied()
-        {
-            return View();
-        }
-
-        // ------------------------------------------
-        // Étape 6 : Méthode réutilisable pour API avec JWT
-        // ------------------------------------------
-        private HttpClient CreateApiClient()
-        {
-            var client = _httpClientFactory.CreateClient("BookingAPI");
-
-            // Récupère le JWT depuis les claims
-            var token = User.FindFirst("Jwt")?.Value;
-
-            if (!string.IsNullOrEmpty(token))
-            {
-                client.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue("Bearer", token);
-            }
-
-            return client;
         }
     }
 }

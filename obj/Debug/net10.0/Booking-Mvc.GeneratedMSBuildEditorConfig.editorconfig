@@ -38,12 +38,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Account/VerifyOtp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWZXJpZnlPdHAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Billets/Billet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGV0c1xCaWxsZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Billets/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGV0c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Billets/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGV0c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Billets/Edit.cshtml]
@@ -70,10 +82,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Home/Billet.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCaWxsZXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -88,6 +96,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Home/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/reserver/Reserver.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NccmVzZXJ2ZXJcUmVzZXJ2ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/MICHAEL/DOTNET/projet/Booking-Air-Mvc/Views/Shared/DashboardLayout.cshtml]

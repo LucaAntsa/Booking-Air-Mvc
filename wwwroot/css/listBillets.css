@@ -1,0 +1,124 @@
+/* SECTION */
+.billet-section{
+  padding: 2rem;
+}
+
+.hover-zoom{
+  transition: transform 0.3s ease;
+  display: inline-block; /* important */
+  width: 1.8rem;
+}
+
+.hover-zoom:hover{
+  transform: scale(1.5);
+}
+
+/* HEADER */
+.billet-header-title{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 1.5rem;
+}
+
+/* TABLE */
+.billet-table{
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(27,94,32,0.12);
+}
+
+/* HEAD */
+.billet-table thead{
+  background: linear-gradient(135deg, var(--blue), var(--green));
+  color: white;
+}
+
+.billet-table th{
+  padding: 0.9rem;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* BODY */
+.billet-table td{
+  padding: 0.85rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eef5ee;
+}
+
+/* ROW */
+.billet-table tbody tr{
+  transition: all 0.25s ease;
+}
+
+.billet-table tbody tr:hover{
+  background: var(--red);
+  transform: scale(1.01);
+}
+
+/* ROUTE */
+.billet-route{
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* TYPE BADGE */
+.billet-type{
+  background: var(--sky);
+  color: var(--green);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* PRICE */
+.billet-price{
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* INPUT */
+.qty-input{
+  width: 60px;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  border: 1px solid #c8e6c9;
+  background: #fbfefb;
+}
+
+.qty-input:focus{
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
+}
+
+/* BUTTON */
+.btn-reserve{
+  background: linear-gradient(135deg, var(--blue), var(--green));
+  color: white;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-reserve:hover{
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--green), var(--blue));
+  box-shadow: 0 8px 20px rgba(27,94,32,0.2);
+}
+
+/* EMPTY */
+.empty{
+  text-align: center;
+  margin-top: 2rem;
+  color: #777;
+}

@@ -1,62 +1,181 @@
 @using System.Security.Claims
 @{
-    var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 }
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>@ViewData["Title"] - BookingAir</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true"/>
+
+<!-- Bootstrap + Icons -->
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true"/>
+<link rel="icon" type="image/png" href="~/favicon.png" />
+
+<style>
+    body {
+        background-color: #f5f7fa;
+    }
+
+    .navbar {
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+
+    .nav-link {
+        transition: 0.2s;
+    }
+
+    .nav-link:hover {
+        color: #0d6efd !important;
+        transform: translateY(-1px);
+    }
+
+    .card-dashboard {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+    .profile-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 6px 12px;
+        border-radius: 999px;
+
+        background: rgba(255, 255, 255, 0.08);
+        color: white;
+        text-decoration: none;
+
+        transition: 0.2s ease;
+        font-size: 0.9rem;
+    }
+
+    .profile-btn:hover {
+        background: rgba(255, 255, 255, 0.18);
+        transform: translateY(-1px);
+    }
+
+    .avatar {
+        width: 28px;
+        height: 28px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: white;
+        color: black;
+        border-radius: 50%;
+
+        font-size: 0.8rem;
+    }
+
+    .username {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+</style>
+
 </head>
+
 <body>
-    <header class="header-dashboard">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <!-- LOGO DASHBOARD -->
-                <a class="navbar-brand" asp-controller="Admin" asp-action="Dashboard">Dashboard</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+        <div class="container-fluid">
 
-                <div class="collapse navbar-collapse" id="adminNavbar">
-                    <!-- NAVIGATION GAUCHE -->
-                    <ul class="navbar-nav me-auto">
-                        <!-- Ce lien renvoie vers le layout principal du site -->
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Back</a>
-                        </li>
-                        <!-- Tous les autres liens restent dans le dashboard -->
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Admin" asp-action="Dashboard">Overview</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Destinations" asp-action="Index">Destinations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Billets" asp-action="Index">Billet</a>
-                        </li>
-                    </ul>
+        <!-- LOGO -->
+        <a class="navbar-brand d-flex align-items-center gap-2"
+           asp-controller="Admin" asp-action="Dashboard">
+            <i class="bi bi-speedometer2"></i>
+            BookingAir Admin
+        </a>
 
-                    <!-- NAVIGATION DROITE -->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- CONTENT -->
-    <main class="container mt-4">
-        @RenderBody()
-    </main>
+        <div class="collapse navbar-collapse" id="adminNavbar">
 
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+            <!-- MENU GAUCHE -->
+            <ul class="navbar-nav me-auto gap-2">
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">
+                        <i class="bi bi-house"></i> Retour site
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Admin" asp-action="Dashboard">
+                        <i class="bi bi-graph-up"></i> Analyse
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Destinations" asp-action="Index">
+                        <i class="bi bi-geo-alt"></i> Destinations
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Billets" asp-action="Index">
+                        <i class="bi bi-ticket"></i> Billets
+                    </a>
+                </li>
+            </ul>
+
+            <!-- DROITE -->
+            <ul class="navbar-nav ms-auto align-items-center gap-3">
+
+                <li >
+                    <a class="profile-btn" asp-controller="Home" asp-action="Profile">
+                        <span class="avatar">👤</span>
+                        <span class="username">@User.Identity?.Name</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="btn btn-outline-light btn-sm"
+                       asp-controller="Account" asp-action="Logout">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</header>
+
+<!-- CONTENT -->
+
+<main class="container main-content">
+    @RenderBody()
+</main>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

@@ -47,57 +47,64 @@ namespace Booking_Mvc.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Billet(string idDestination)
+        public async Task<IActionResult> ListeDestination(
+            string search,
+            string nomVol,
+            string dateDepart,
+            string heureDepart)
         {
             var client = CreateApiClient();
 
-            //récupérer la destination
-            var response = await client.GetAsync($"api/destinations/{idDestination}");
-
-            if (!response.IsSuccessStatusCode)
-                return NotFound();
-
-            var json = await response.Content.ReadAsStringAsync();
-
-            var destination = JsonSerializer.Deserialize<Destination>(json,
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            // 🔥 créer un billet temporaire (non enregistré) avec le vrai prix
-            var billet = new Billet
-            {
-                Id_Destination = idDestination,
-                Prix = destination.Prix, // <--- ici
-                Total_Billet = 1
-            };
-
-            var model = new BilletAvecDestinationDto
-            {
-                Id_Destination = idDestination,
-                Prix = billet.Prix,
-                Total_Billet = billet.Total_Billet,
-                Destination = destination
-            };
-
-            return View("~/Views/Home/Billet.cshtml",model);
-        }
-        public async Task<IActionResult> ListeDestination()
-        {
-            // 🔑 Crée le client avec JWT
-            var client = CreateApiClient();
-            // 📡 Appel API
             var response = await client.GetAsync("api/destinations");
-            // ❌ Si erreur → liste vide
+
             if (!response.IsSuccessStatusCode)
                 return View(new List<Destination>());
-            // 📥 Lire JSON
-            var json = await response.Content.ReadAsStringAsync();
-            // 🔄 Convertir en liste
-            var destinations = JsonSerializer.Deserialize<List<Destination>>(json,
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            // ✅ Envoyer à la vue
-            return View(destinations ?? new List<Destination>());
-        }
 
+            var json = await response.Content.ReadAsStringAsync();
+
+            var destinations = JsonSerializer.Deserialize<List<Destination>>(json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
+                ?? new List<Destination>();
+
+            // 🔎 SEARCH
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                destinations = destinations.Where(x =>
+                    x.Lieu_Depart.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    x.Lieu_Arriver.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    x.Nom_Vol.ToString().Contains(search, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
+            }
+
+            // ✈️ NOM VOL (FIX IMPORTANT)
+            if (!string.IsNullOrWhiteSpace(nomVol))
+            {
+                destinations = destinations.Where(x =>
+                    x.Nom_Vol.ToString().Equals(nomVol, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
+            }
+
+            // 📅 DATE DEPART (FIX SAFE)
+            if (!string.IsNullOrWhiteSpace(dateDepart))
+            {
+                if (DateTime.TryParse(dateDepart, out var date))
+                {
+                    destinations = destinations.Where(x =>
+                        x.Date_Depart.Date == date.Date
+                    ).ToList();
+                }
+            }
+
+            // 🕒 HEURE (FIX ROBUSTE)
+            if (!string.IsNullOrWhiteSpace(heureDepart))
+            {
+                destinations = destinations.Where(x =>
+                    x.Heur_Depart.StartsWith(heureDepart)
+                ).ToList();
+            }
+
+            return View(destinations);
+        }
         public IActionResult Profile()
         {
             return View();

@@ -60,7 +60,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 app.UseRouting();
-
+app.UseDeveloperExceptionPage();
 app.UseAuthentication();  // Toujours avant UseAuthorization
 app.UseAuthorization();
 app.UseSession();

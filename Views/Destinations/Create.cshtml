@@ -2,59 +2,138 @@
 @using Booking_Mvc.Enums
 
 @{
-    ViewData["Title"] = "Créer destination";
-    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+ViewData["Title"] = "Créer destination";
+Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<div class="container mt-4">
-    <h2>Créer une destination</h2>
-
-    <div asp-validation-summary="All" class="text-danger mb-3"></div>
-
-    <form asp-action="Create" method="post">
-        <div class="mb-3">
-            <label asp-for="Lieu_Depart" class="form-label"></label>
-            <input asp-for="Lieu_Depart" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Lieu_Arriver" class="form-label"></label>
-            <input asp-for="Lieu_Arriver" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Heur_Depart" class="form-label"></label>
-            <input asp-for="Heur_Depart" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Duree" class="form-label"></label>
-            <input asp-for="Duree" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Date_Depart" class="form-label"></label>
-            <input asp-for="Date_Depart" type="datetime-local" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Date_Arriver" class="form-label"></label>
-            <input asp-for="Date_Arriver" type="datetime-local" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Nom_Vol" class="form-label"></label>
-            <select asp-for="Nom_Vol" class="form-select" asp-items="Html.GetEnumSelectList<NomVol>()">
-                <option value="">-- Sélectionner un vol --</option>
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Prix" class="form-label"></label>
-            <input asp-for="Prix" class="form-control" />
-        </div>
-
-        <button type="submit" class="btn btn-success">Enregistrer</button>
-        <a asp-action="Index" class="btn btn-secondary">Annuler</a>
-    </form>
+<div class="container my-4">
+<!-- HEADER -->
+<div class="mb-4">
+    <h3 class="fw-bold">Créer une destination</h3>
+    <small class="text-muted">Ajoutez une nouvelle route de vol</small>
 </div>
+
+<!-- CARD FORM -->
+<div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body p-4">
+
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <div class="row g-3">
+
+                <!-- Lieu départ -->
+                <div class="col-md-6">
+                    <label asp-for="Lieu_Depart" class="form-label fw-semibold"></label>
+                    <input asp-for="Lieu_Depart" class="form-control" placeholder="Ex: Paris" />
+                </div>
+
+                <!-- Lieu arrivée -->
+                <div class="col-md-6">
+                    <label asp-for="Lieu_Arriver" class="form-label fw-semibold"></label>
+                    <input asp-for="Lieu_Arriver" class="form-control" placeholder="Ex: Tokyo" />
+                </div>
+
+                <!-- Heure départ -->
+                <div class="col-md-4">
+                    <label asp-for="Heur_Depart" class="form-label fw-semibold"></label>
+                    <input asp-for="Heur_Depart" class="form-control" />
+                </div>
+
+                <!-- Durée -->
+                <div class="col-md-4">
+                    <label asp-for="Duree" class="form-label fw-semibold"></label>
+                    <input asp-for="Duree" class="form-control" placeholder="Ex: 12h 30m" />
+                </div>
+
+                <!-- Prix -->
+                <div class="col-md-4">
+                    <label asp-for="Prix" class="form-label fw-semibold"></label>
+                    <div class="input-group">
+                        <input asp-for="Prix" class="form-control" />
+                        <span class="input-group-text">$</span>
+                    </div>
+                </div>
+
+                <!-- Date départ -->
+                <div class="col-md-6">
+                    <label asp-for="Date_Depart" class="form-label fw-semibold"></label>
+                    <input asp-for="Date_Depart" type="datetime-local" class="form-control" />
+                </div>
+
+                <!-- Date arrivée -->
+                <div class="col-md-6">
+                    <label asp-for="Date_Arriver" class="form-label fw-semibold"></label>
+                    <input asp-for="Date_Arriver" type="datetime-local" class="form-control" />
+                </div>
+
+                <!-- Nom vol -->
+                <div class="col-md-12">
+                    <label asp-for="Nom_Vol" class="form-label fw-semibold"></label>
+                    <select asp-for="Nom_Vol" class="form-select" asp-items="Html.GetEnumSelectList<NomVol>()">
+                        <option value="">-- Sélectionner un vol --</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="d-flex justify-content-end gap-2 mt-4">
+
+                <a asp-action="Index" class="btn btn-light border">
+                    Annuler
+                </a>
+
+                <button type="submit" class="btn btn-primary px-4">
+                    Enregistrer
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+</div>
+
+<style>
+
+/* CARD STYLE */
+.card {
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* INPUTS CLEAN */
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* LABEL */
+.form-label {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* BUTTONS */
+.btn-primary {
+    border-radius: 10px;
+}
+
+.btn-light {
+    border-radius: 10px;
+}
+
+/* RESPONSIVE FEEL */
+@@media (max-width: 768px) (max-width: 768px) {
+    .card-body {
+        padding: 20px;
+    }
+}
+
+</style>

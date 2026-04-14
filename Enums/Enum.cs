@@ -5,8 +5,7 @@ public enum UserRole
 {
     Client,
     Admin,
-    Services,
-    Superviseur
+    Services
 }
 
 // Enum pour le status

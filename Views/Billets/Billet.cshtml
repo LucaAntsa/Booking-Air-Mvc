@@ -1,0 +1,72 @@
+@model IEnumerable<Booking_Mvc.Dto.BilletAvecDestinationDto>
+
+@{
+    ViewData["Title"] = "Billets disponibles";
+}
+
+<section class="billet-section">
+
+    <div class="billet-header-title">
+        <a asp-controller="Home" asp-action="ListeDestination" class="billet-price hover-zoom" > ← </a> Billets disponibles
+    </div>
+
+    <table class="billet-table">
+
+        <thead>
+            <tr>
+                <th>N° de vol</th>
+                <th>Trajet</th>
+                <th>Départ</th>
+                <th>Type</th>
+                <th>Prix</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.OrderBy(x => int.Parse(x.Num_Billet)))
+            {
+                <tr>
+                    <td>@item.Num_Billet</td>
+
+                    <td class="billet-route">
+                        @item.Destination?.Lieu_Depart → @item.Destination?.Lieu_Arriver
+                    </td>
+
+                    <td>
+                        @item.Destination?.Heur_Depart
+                    </td>
+
+                    <td>
+                        <span class="billet-type">
+                            @item.Type
+                        </span>
+                    </td>
+
+                    <td class="billet-price">
+                        @item.Prix$
+                    </td>
+
+                    <td>
+                        <a class="btn-reserve"
+                        asp-controller="Reserver"
+                        asp-action="reserver"
+                        asp-route-idDestination="@item.Id_Destination"
+                        asp-route-prixBillet="@item.Prix">
+                            Réserver
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+    @if (!Model.Any())
+    {
+        <div class="empty">
+            Aucun billet disponible 😔
+        </div>
+    }
+
+</section>

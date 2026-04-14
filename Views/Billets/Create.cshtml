@@ -1,44 +1,121 @@
 @model Booking_Mvc.Models.Billet
 
 @{
-    ViewData["Title"] = "Créer billet";
-    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+ViewData["Title"] = "Créer billet";
+Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<div class="container mt-4">
-    <h2>Créer un billet</h2>
-
-    <div asp-validation-summary="All" class="text-danger mb-3"></div>
-
-    <form asp-action="Create" method="post">
-
-        <!-- 🔥 ID Destination caché -->
-        <input type="hidden" asp-for="Id_Destination"/>
-
-        <div class="mb-3">
-            <label asp-for="Num_Billet" class="form-label">Numero UID</label>
-            <input asp-for="Num_Billet" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Total_Billet" class="form-label">Total billets</label>
-            <input asp-for="Total_Billet" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Type" class="form-label"></label>
-            <select asp-for="Type"
-                    asp-items="Html.GetEnumSelectList<Booking_Mvc.Enums.TypeClasse>()"
-                    class="form-control">
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Prix" class="form-label"></label>
-            <input asp-for="Prix" class="form-control"/>
-        </div>
-
-        <button type="submit" class="btn btn-success">Enregistrer</button>
-        <a asp-action="Index" class="btn btn-secondary">Annuler</a>
-    </form>
+<div class="container my-4">
+<!-- HEADER -->
+<div class="mb-4">
+    <h3 class="fw-bold">🎫 Créer un billet</h3>
+    <small class="text-muted">Ajouter un nouveau billet pour une destination</small>
 </div>
+
+<!-- CARD FORM -->
+<div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body p-4">
+
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <!-- hidden -->
+            <input type="hidden" asp-for="Id_Destination" value="@Model.Id_Destination" />
+
+            <div class="row g-3">
+
+                <!-- Num billet -->
+                <div class="col-md-6">
+                    <label asp-for="Num_Billet" class="form-label fw-semibold">Numéro UID</label>
+                    <input asp-for="Num_Billet"
+                           class="form-control"
+                           placeholder="Ex: 123" />
+                </div>
+
+                <!-- Total billets -->
+                <div class="col-md-6">
+                    <label asp-for="Total_Billet" class="form-label fw-semibold">Total billets</label>
+                    <input asp-for="Total_Billet" class="form-control" />
+                </div>
+
+                <!-- Type -->
+                <div class="col-md-6">
+                    <label asp-for="Type" class="form-label fw-semibold"></label>
+                    <select asp-for="Type"
+                            asp-items="Html.GetEnumSelectList<Booking_Mvc.Enums.TypeClasse>()"
+                            class="form-select">
+                    </select>
+                </div>
+
+                <!-- Prix -->
+                <div class="col-md-6">
+                    <label asp-for="Prix" class="form-label fw-semibold"></label>
+                    <div class="input-group">
+                        <input asp-for="Prix" class="form-control"/>
+                        <span class="input-group-text">$</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="d-flex justify-content-end gap-2 mt-4">
+
+                <a asp-action="Index" class="btn btn-light border">
+                    Annuler
+                </a>
+
+                <button type="submit" class="btn btn-primary px-4">
+                    Enregistrer
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+</div>
+
+<style>
+
+/* CARD */
+.card {
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* INPUTS */
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* LABEL */
+.form-label {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* BUTTONS */
+.btn-primary {
+    border-radius: 10px;
+}
+
+.btn-light {
+    border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@@media (max-width: 768px) {
+    .card-body {
+        padding: 20px;
+    }
+}
+
+</style>

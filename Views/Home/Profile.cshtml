@@ -14,7 +14,7 @@
 
         <div class="profile-card-modern">
             <h3>Email</h3>
-            <p>john.doe@example.com</p>
+            <p>@User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value</p>
         </div>
 
         <div class="profile-card-modern">
@@ -29,12 +29,12 @@
 
         <div class="profile-card-modern">
             <h3>Favorite Destinations</h3>
-            <p>Tana, Paris, Tokyo</p>
+            <p>Tana, Paris</p>
         </div>
 
         <div class="profile-card-modern">
             <h3>Upcoming Trips</h3>
-            <p>London, Dubai</p>
+            <p>japan</p>
         </div>
 
     </section>

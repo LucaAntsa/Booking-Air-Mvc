@@ -1,0 +1,121 @@
+@{
+    ViewData["Title"] = "Verification";
+}
+
+<form asp-action="VerifyOtp" method="post" class="otp-container">
+
+<div class="otp-card">
+
+    <div class="otp-icon"></div>
+
+    <h3 class="otp-title">Vérification sécurisée</h3>
+    <p class="otp-subtitle">Entrez le code OTP pour continuer votre réservation</p>
+
+    <input type="text"
+           name="Code"
+           maxlength="6"
+           class="otp-input"
+           placeholder="••••••" />
+
+    <button type="submit" class="otp-btn">
+        Valider
+    </button>
+
+</div>
+
+</form>
+
+<style>
+
+/* BACKGROUND BOOKINGAIR */
+.otp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    background: linear-gradient(135deg, #e6f4ea, #eaf2ff);
+}
+
+/* CARD */
+.otp-card {
+    width: 100%;
+    max-width: 380px;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    border-top: 4px solid #2e7d32; /* vert BookingAir */
+}
+
+/* ICON */
+.otp-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* TITLE */
+.otp-title {
+    font-weight: 700;
+    color: #1f2d3d;
+    margin-bottom: 6px;
+}
+
+/* SUBTITLE */
+.otp-subtitle {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 22px;
+}
+
+/* INPUT */
+.otp-input {
+    width: 100%;
+    padding: 14px;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 8px;
+    border: 1px solid #dbe5f0;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.2s;
+    background: #f9fbff;
+}
+
+.otp-input:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46,125,50,0.15);
+    background: #ffffff;
+}
+
+/* BUTTON BOOKINGAIR */
+/* BUTTON BOOKINGAIR CLEAN (VERT + BLANC) */
+.otp-btn {
+    margin-top: 16px;
+    width: 100%;
+    padding: 12px;
+    background: #2e7d32; /* vert principal */
+    color: #ffffff;      /* blanc */
+    border: 2px solid #2e7d32;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.otp-btn:hover {
+    background: #ffffff;  /* inverse au hover */
+    color: #2e7d32;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46,125,50,0.25);
+}
+
+/* MOBILE */
+@@media (max-width: 480px) {
+    .otp-card {
+        margin: 0 15px;
+        padding: 24px;
+    }
+}
+
+</style>

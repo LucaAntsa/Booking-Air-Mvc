@@ -1,47 +1,119 @@
 @model List<Booking_Mvc.Models.Destination>
 
 @{
-    ViewData["Title"] = "Destinations";
-    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+ViewData["Title"] = "Destinations";
+Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Liste des destinations</h2>
-        <a asp-action="Create" class="btn btn-success">Nouvelle destination</a>
-    </div>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold">Destinations</h3>
 
-    <table class="table table-bordered table-striped">
-        <thead>
+<a asp-action="Create" class="btn btn-primary">
+    <i class="bi bi-plus-lg"></i> Nouvelle destination
+</a>
+
+
+</div>
+
+<div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-0">
+    <table class="table align-middle mb-0">
+        <thead class="bg-light">
             <tr>
-                <th>Départ</th>
-                <th>Arrivée</th>
-                <th>Heure départ</th>
+                <th>Vol</th>
+                <th>Trajet</th>
+                <th>Horaires</th>
                 <th>Durée</th>
-                <th>Date départ</th>
-                <th>Date arrivée</th>
                 <th>Prix</th>
-                <th>Actions</th>
+                <th class="text-end">Actions</th>
             </tr>
         </thead>
+
         <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Lieu_Depart</td>
-                <td>@item.Lieu_Depart</td>
-                <td>@item.Heur_Depart</td>
-                <td>@item.Duree</td>
-                <td>@item.Date_Depart</td>
-                <td>@item.Date_Arriver</td>
-                <td>@item.Prix$</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Modifier</a>
-                    <a class="btn btn-primary btn-sm" asp-controller="Billets" asp-action="Create" asp-route-idDestination="@item.Id" asp-route-prixBillet="@item.Prix" asp-area="">Create billets</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Supprimer</a>
-                </td>
-            </tr>
-        }
+            @foreach (var item in Model)
+            {
+                <tr class="border-top">
+
+                    <!-- NOM VOL -->
+                    <td class="fw-semibold text-primary">
+                        @item.Nom_Vol
+                    </td>
+
+                    <!-- TRAJET -->
+                    <td>
+                        <div class="d-flex flex-column">
+                            <span class="fw-semibold">@item.Lieu_Depart</span>
+                            <small class="text-muted">→ @item.Lieu_Arriver</small>
+                        </div>
+                    </td>
+
+                    <!-- HORAIRES -->
+                    <td>
+                        <div class="d-flex flex-column small">
+                            <span>🕒 @item.Heur_Depart</span>
+                            <span class="text-muted">
+                                @item.Date_Depart.ToString("dd MMM yyyy")
+                            </span>
+                        </div>
+                    </td>
+
+                    <!-- DUREE -->
+                    <td>
+                        <span class="badge bg-secondary-subtle text-dark">
+                            ⏱ @item.Duree
+                        </span>
+                    </td>
+
+                    <!-- PRIX -->
+                    <td>
+                        <span class="badge bg-success-subtle text-success fw-semibold">
+                            @item.Prix $
+                        </span>
+                    </td>
+
+                    <!-- ACTIONS -->
+                    <td class="text-end">
+                        <div class="d-flex justify-content-end gap-2">
+
+                            <a asp-action="Edit"
+                               asp-route-id="@item.Id"
+                               class="btn btn-light btn-sm border">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <a class="btn btn-light btn-sm border text-success"
+                               asp-controller="Billets"
+                               asp-action="Create"
+                               asp-route-idDestination="@item.Id"
+                               asp-route-prixBillet="@item.Prix">
+                                <i class="bi bi-ticket"></i>
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@item.Id"
+                               class="btn btn-light btn-sm border text-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+
+                        </div>
+                    </td>
+
+                </tr>
+            }
         </tbody>
     </table>
+
 </div>
+
+</div>
+
+<style>
+tbody tr {
+    transition: 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.005);
+}
+</style>

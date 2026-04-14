@@ -1,59 +1,145 @@
 @model Booking_Mvc.Models.Destination
 
 @{
-    ViewData["Title"] = "Modifier destination";
-    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+ViewData["Title"] = "Modifier destination";
+Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<div class="container mt-4">
-    <h2>Modifier une destination</h2>
+<div class="container my-4">
 
-    <div asp-validation-summary="All" class="text-danger mb-3"></div>
-
-    <form asp-action="Edit" method="post">
-        <input asp-for="Id" type="hidden" />
-
-        <div class="mb-3">
-            <label asp-for="Lieu_Depart" class="form-label"></label>
-            <input asp-for="Lieu_Depart" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Lieu_Arriver" class="form-label"></label>
-            <input asp-for="Lieu_Arriver" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Heur_Depart" class="form-label"></label>
-            <input asp-for="Heur_Depart" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Duree" class="form-label"></label>
-            <input asp-for="Duree" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Date_Depart" class="form-label"></label>
-            <input asp-for="Date_Depart" type="datetime-local" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Date_Arriver" class="form-label"></label>
-            <input asp-for="Date_Arriver" type="datetime-local" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Nom_Vol" class="form-label"></label>
-            <input asp-for="Nom_Vol" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Prix" class="form-label"></label>
-            <input asp-for="Prix" class="form-control" />
-        </div>
-
-        <button type="submit" class="btn btn-primary">Modifier</button>
-        <a asp-action="Index" class="btn btn-secondary">Annuler</a>
-    </form>
+<!-- HEADER -->
+<div class="mb-4">
+    <h3 class="fw-bold">Modifier la destination</h3>
+    <small class="text-muted">Mettre à jour les informations du vol</small>
 </div>
+
+<!-- CARD -->
+<div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body p-4">
+
+        <form asp-action="Edit" method="post">
+
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <!-- ID hidden -->
+            <input asp-for="Id" type="hidden" />
+
+            <div class="row g-3">
+
+                <!-- Vol -->
+                <div class="col-md-6">
+                    <label asp-for="Nom_Vol" class="form-label fw-semibold">Nom du vol</label>
+                    <input asp-for="Nom_Vol" class="form-control" />
+                </div>
+
+                <!-- Prix -->
+                <div class="col-md-6">
+                    <label asp-for="Prix" class="form-label fw-semibold"></label>
+                    <div class="input-group">
+                        <input asp-for="Prix" class="form-control" />
+                        <span class="input-group-text">$</span>
+                    </div>
+                </div>
+
+                <!-- Départ -->
+                <div class="col-md-6">
+                    <label asp-for="Lieu_Depart" class="form-label fw-semibold">Lieu de départ</label>
+                    <input asp-for="Lieu_Depart" class="form-control" />
+                </div>
+
+                <!-- Arrivée -->
+                <div class="col-md-6">
+                    <label asp-for="Lieu_Arriver" class="form-label fw-semibold">Lieu d’arrivée</label>
+                    <input asp-for="Lieu_Arriver" class="form-control" />
+                </div>
+
+                <!-- Heure -->
+                <div class="col-md-6">
+                    <label asp-for="Heur_Depart" class="form-label fw-semibold">Heure de départ</label>
+                    <input asp-for="Heur_Depart" class="form-control" />
+                </div>
+
+                <!-- Durée -->
+                <div class="col-md-6">
+                    <label asp-for="Duree" class="form-label fw-semibold">Durée</label>
+                    <input asp-for="Duree" class="form-control" />
+                </div>
+
+                <!-- Date départ -->
+                <div class="col-md-6">
+                    <label asp-for="Date_Depart" class="form-label fw-semibold">Date de départ</label>
+                    <input asp-for="Date_Depart" type="datetime-local" class="form-control" />
+                </div>
+
+                <!-- Date arrivée -->
+                <div class="col-md-6">
+                    <label asp-for="Date_Arriver" class="form-label fw-semibold">Date d’arrivée</label>
+                    <input asp-for="Date_Arriver" type="datetime-local" class="form-control" />
+                </div>
+
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="d-flex justify-content-end gap-2 mt-4">
+
+                <a asp-action="Index" class="btn btn-light border">
+                    Annuler
+                </a>
+
+                <button type="submit" class="btn btn-primary px-4">
+                    Sauvegarder
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+</div>
+
+<style>
+
+/* CARD */
+.card {
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* INPUTS */
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.input-group-text {
+    border-radius: 0 10px 10px 0;
+}
+
+/* LABEL */
+.form-label {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* BUTTONS */
+.btn-primary {
+    border-radius: 10px;
+}
+
+.btn-light {
+    border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@@media (max-width: 768px) {
+    .card-body {
+        padding: 20px;
+    }
+}
+
+</style>

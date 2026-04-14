@@ -1,45 +1,58 @@
+@using Booking_Mvc.Enums
 @model List<Booking_Mvc.Models.Destination>
 @{
     ViewData["Title"] = "Destinations";
 }
+<link rel="stylesheet" href="/css/listBillets.css" asp-append-version="true" />
 
 <section class="liste-filters py-4">
 
     <div class="container">
 
         <div class="liste-filters-bar d-flex flex-wrap justify-content-between align-items-center gap-3">
-
-            <!-- Barre de recherche -->
-            <div class="liste-search">
-                <input type="text" class="liste-search-input" placeholder="Search destinations...">
-                <button class="liste-search-btn">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-
             <!-- Filtres -->
-            <div class="liste-selects d-flex gap-2 flex-wrap">
-                <select class="liste-select">
-                    <option value="">All Flights</option>
-                    <option value="flight1">Flight 1</option>
-                    <option value="flight2">Flight 2</option>
-                </select>
+            <form method="get" asp-action="ListeDestination">
+                <div class="liste-filters-bar d-flex flex-wrap justify-content-around align-items-center gap-3">
+                    <!-- SEARCH -->
+                    <div class="liste-search">
+                        <input type="text"
+                            name="search"
+                            class="liste-search-input"
+                            placeholder="Search destinations..." />
 
-                <select class="liste-select">
-                    <option value="">All Dates</option>
-                    <option value="2026-06-12">12 Jun 2026</option>
-                    <option value="2026-06-13">13 Jun 2026</option>
-                </select>
-
-                <select class="liste-select">
-                    <option value="">Departure Time</option>
-                    <option value="08:00">08:00</option>
-                    <option value="12:00">12:00</option>
-                </select>
-            </div>
-
+                        <button class="liste-search-btn" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <!-- FILTRES -->
+                    <div class="liste-selects d-flex gap-2 flex-wrap">
+                       <select name="nomVol" class="liste-select">
+                            <option value="">All Flights</option>
+                            @foreach (NomVol v in Enum.GetValues(typeof(NomVol)))
+                            {
+                                <option value="@v">@v</option>
+                            }
+                        </select>
+                        <!-- DATE DEPART -->
+                        <select name="dateDepart" class="liste-select">
+                            <option value="">All Dates</option>
+                            @foreach (var d in Model.Select(x => x.Date_Depart.ToString("yyyy-MM-dd")).Distinct())
+                            {
+                                <option value="@d">@d</option>
+                            }
+                        </select>
+                        <!-- HEURE -->
+                        <select name="heureDepart" class="liste-select">
+                            <option value="">Departure Time</option>
+                            @foreach (var h in Model.Select(x => x.Heur_Depart).Distinct())
+                            {
+                                <option value="@h">@h</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </form>
         </div>
-
     </div>
 
 </section>
@@ -53,8 +66,11 @@
     <div class="destination-card">
         <div class="destination-top">
             <div class="destination-route">
-                <p class="destination-label">Route</p>
-                <p class="destination-value">@item.Lieu_Depart → @item.Lieu_Depart</p>
+                <p class="destination-label" style="display: flex; gap: 0 2vw">Route:<span class="type-badge">
+                    @item.Nom_Vol
+                </span></p>
+                <p class="destination-value">@item.Lieu_Depart → @item.Lieu_Arriver</p>
+                
             </div>
             <div class="destination-duration">
                 <i class="fa-solid fa-clock"></i>
@@ -63,13 +79,13 @@
         </div>
 
         <div class="destination-dates">
-            <p><span>Departure</span> @item.Date_Depart - @item.Heur_Depart</p>
-            <p><span>Arrival</span> @item.Date_Arriver</p>
+            <p><span>durée de vol:</span> @item.Heur_Depart</p>
+            <p><span>Depare</span> @item.Date_Depart.ToString("dd/MM/yyyy")  <span>Arrive</span> @item.Date_Arriver.ToString("dd/MM/yyyy")</p>
         </div>
 
         <div class="destination-bottom">
             <p class="destination-price">$@item.Prix</p>
-            <a asp-controller="Home" asp-action="Billet" asp-route-idDestination="@item.Id" asp-route-prix="@item.Prix">Reserver un vol</a>
+            <a class="destination-buy" asp-controller="Billets" asp-action="Billet" asp-route-idDestination="@item.Id">Reserver un vol</a>
         </div>
     </div>
 
