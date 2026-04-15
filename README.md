@@ -1,6 +1,6 @@
 MVC DU PROJECT / 
 
-1/ package necessaire : 
+1/ package necessaire : <br>
     --Microsoft.EntityFrameworkCore.Design      9.0.0     9.0.0 <br>
     --Microsoft.EntityFrameworkCore.Tools       9.0.0     9.0.0 <br>
     --Pomelo.EntityFrameworkCore.MySql          9.0.0     9.0.0
