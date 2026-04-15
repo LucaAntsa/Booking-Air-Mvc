@@ -1,9 +1,137 @@
 :root{
-  --blue: #2e7d32;      /* vert principal */
-  --green: #1b5e20;     /* vert foncé */
-  --light-green: #a5d6a7; /* vert clair */
-  --white: #ffffff;
-  --gray-text: #555;
+  --blue: #2e7d32;
+  --red: #e8f5e9;
+  --sky: #a5d6a7;
+  --green: #1b5e20;
+  --White: #ffffff;
+}
+
+/* SECTION WRAPPER */
+.profile-reservations-modern {
+    margin-top: 25px;
+}
+
+/* TITRE */
+.section-header-modern {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header-modern h2 {
+    color: var(--green);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.badge-modern {
+    background: var(--sky);
+    color: var(--green);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* EMPTY STATE */
+.empty-state-modern {
+    background: var(--red);
+    border: 2px dashed var(--sky);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    color: var(--green);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.empty-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* LIST GRID */
+.reservation-list-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
+}
+
+/* CARD */
+.reservation-card-modern {
+    background: var(--White);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--blue);
+    transition: 0.2s ease;
+}
+
+.reservation-card-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* HEADER CARD */
+.reservation-header-modern {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reservation-header-modern h3 {
+    font-size: 16px;
+    color: var(--green);
+}
+
+/* TYPE BADGE */
+.badge-type-modern {
+    background: var(--sky);
+    color: var(--green);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* BODY */
+.reservation-body-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-row-modern {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333;
+}
+
+/* FOOTER */
+.reservation-footer-modern {
+    margin-top: 12px;
+    text-align: right;
+}
+
+.btn-small-modern {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-small-modern:hover {
+    background: var(--green);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .profile-page-modern{

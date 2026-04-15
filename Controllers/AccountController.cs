@@ -137,6 +137,7 @@ namespace Booking_Mvc.Controllers
 
             return RedirectToAction("VerifyOtp");
         }
+
         // POST: /Account/Register
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)

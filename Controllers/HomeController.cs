@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Booking_Mvc.Models;
 using Booking_Mvc.Dto;
+using Booking_Mvc.ViewModel;
 
 namespace Booking_Mvc.Controllers
 {
@@ -105,9 +106,62 @@ namespace Booking_Mvc.Controllers
 
             return View(destinations);
         }
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile()
         {
-            return View();
+            var client = CreateApiClient();
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            // RESERVATIONS
+            var resResponse = await client.GetAsync("api/reserva");
+            var resJson = await resResponse.Content.ReadAsStringAsync();
+
+            var reservations = JsonSerializer.Deserialize<List<Reservation>>(
+                resJson,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            ) ?? new List<Reservation>();
+            reservations = reservations
+            .Where(r => r.User_Id == userId)
+            .ToList();
+
+            // BILLETS
+            var bilResponse = await client.GetAsync("api/billets");
+            var bilJson = await bilResponse.Content.ReadAsStringAsync();
+
+            var billets = JsonSerializer.Deserialize<List<Billet>>(
+                bilJson,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            ) ?? new List<Billet>();
+
+            // DESTINATIONS
+            var destResponse = await client.GetAsync("api/destinations");
+            var destJson = await destResponse.Content.ReadAsStringAsync();
+
+            var destinations = JsonSerializer.Deserialize<List<Destination>>(
+                destJson,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            ) ?? new List<Destination>();
+
+            // JOIN
+            var result = reservations.Select(r =>
+            {
+                var billet = billets.FirstOrDefault(b => b.Id == r.Billet_Id);
+                var destination = destinations.FirstOrDefault(d => d.Id == r.Destination_Id);
+
+                return new ListReservationViewModel
+                {
+                    BilletId = r.Billet_Id,
+                    DestinationId = r.Destination_Id,
+                    Qty = r.Qty,
+                    Prix = r.Prix,
+
+                    BilletType = billet?.Type.ToString() ?? "Inconnu",
+
+                    DestinationNom = destination != null
+                        ? $"{destination.Lieu_Depart} → {destination.Lieu_Arriver}"
+                        : "Inconnue"
+                };
+            }).ToList();
+
+            return View(result);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

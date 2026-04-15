@@ -24,7 +24,7 @@ ViewData["Title"] = "Réservation";
                 <div class="d-flex justify-content-between align-items-start mb-3">
 
                     <div>
-                        <small class="text-muted">Route</small>
+                        <small class="text-muted">Route @Model.Billet.Id</small>
                         <h4 class="fw-bold mb-0">
                             @Model.Destination.Lieu_Depart → @Model.Destination.Lieu_Arriver
                         </h4>
@@ -72,8 +72,10 @@ ViewData["Title"] = "Réservation";
                 <form asp-controller="Reserver" asp-action="Acheter" method="post">
 
                     <!-- hidden -->
+                    <input type="hidden" asp-for="Billet.Id" />
                     <input type="hidden" asp-for="Destination.Id" />
                     <input type="hidden" id="basePrice" value="@Model.Billet.Prix" />
+                    <input type="hidden" asp-for="Billet.Prix" />
 
                     <!-- PRICE -->
                     <div class="mb-4">
@@ -147,7 +149,7 @@ ViewData["Title"] = "Réservation";
         }
 
         totalPrice.innerText = price.toFixed(0);
-        subTotal.innerText = (basePrice * qty).toFixed(0) + " $";
+        subTotal.innerText = price.toFixed(0) + " $";
         discount.innerText = discountValue + "%";
     }
 

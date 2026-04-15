@@ -1,15 +1,25 @@
+@model List<Booking_Mvc.ViewModel.ListReservationViewModel>
+
 <div class="profile-page-modern">
 
-    <!-- HEADER DU PROFIL -->
+    <!-- HEADER -->
     <header class="profile-header-modern">
         <div>
-            <h1 class="profile-name-modern">Nom: @User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value</h1>
-            <p class="profile-username-modern">Role: @User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</p>
+            <h1 class="profile-name-modern">
+                👤 @User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value
+            </h1>
+
+            <p class="profile-username-modern">
+                🏷 Role: @User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value
+            </p>
         </div>
-        <button class="btn-edit-profile-modern">Edit Profile</button>
+
+        <button class="btn-edit-profile-modern">
+            ✏ Edit Profile
+        </button>
     </header>
 
-    <!-- GRID DU PROFIL -->
+    <!-- STATS GRID -->
     <section class="profile-grid-modern">
 
         <div class="profile-card-modern">
@@ -17,26 +27,67 @@
             <p>@User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value</p>
         </div>
 
-        <div class="profile-card-modern">
-            <h3>Member Since</h3>
-            <p>12 Jun 2022</p>
-        </div>
-
-        <div class="profile-card-modern">
-            <h3>Booked Flights</h3>
-            <p>24</p>
-        </div>
-
-        <div class="profile-card-modern">
-            <h3>Favorite Destinations</h3>
-            <p>Tana, Paris</p>
-        </div>
-
-        <div class="profile-card-modern">
-            <h3>Upcoming Trips</h3>
-            <p>japan</p>
+        <div class="profile-card-modern highlight">
+            <h3>✈ Bookings</h3>
+            <p>@(Model?.Count ?? 0)</p>
         </div>
 
     </section>
 
+    <!-- RESERVATIONS -->
+    <section class="profile-reservations-modern">
+
+        <div class="section-header-modern">
+            <h2>🎫 Mes Réservations</h2>
+            <span class="badge-modern">@((Model?.Count ?? 0)) total</span>
+        </div>
+
+        @if (Model == null || !Model.Any())
+        {
+            <div class="empty-state-modern">
+                <div class="empty-icon"></div>
+                <h3>Aucune réservation</h3>
+                <p>Vous n’avez pas encore réservé de billet.</p>
+            </div>
+        }
+        else
+        {
+            <div class="reservation-list-modern">
+
+                @foreach (var item in Model)
+                {
+                    <div class="reservation-card-modern">
+
+                        <div class="reservation-header-modern">
+                            <h3> @item.DestinationNom</h3>
+
+                            <span class="badge-type-modern">
+                                @item.BilletType
+                            </span>
+                        </div>
+
+                        <div class="reservation-body-modern">
+                            <div class="info-row-modern">
+                                <span>🎟 Quantité</span>
+                                <strong>@item.Qty</strong>
+                            </div>
+
+                            <div class="info-row-modern">
+                                <span>💰 Prix total</span>
+                                <strong>@item.Prix €</strong>
+                            </div>
+                        </div>
+
+                        <div class="reservation-footer-modern">
+                            <button class="btn-small-modern">Voir détails</button>
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        }
+
+    </section>
 </div>
+

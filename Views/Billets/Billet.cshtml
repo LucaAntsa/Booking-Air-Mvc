@@ -18,6 +18,7 @@
                 <th>Trajet</th>
                 <th>Départ</th>
                 <th>Type</th>
+                <th>Billet</th>
                 <th>Prix</th>
                 <th>Action</th>
             </tr>
@@ -43,6 +44,12 @@
                         </span>
                     </td>
 
+                    <td>
+                        <span class="billet-price">
+                            @item.Total_Billet
+                        </span>
+                    </td>
+
                     <td class="billet-price">
                         @item.Prix$
                     </td>
@@ -51,6 +58,8 @@
                         <a class="btn-reserve"
                         asp-controller="Reserver"
                         asp-action="reserver"
+                        asp-route-idBillet="@item.Id"
+                        asp-route-Id="@item.Id"
                         asp-route-idDestination="@item.Id_Destination"
                         asp-route-prixBillet="@item.Prix">
                             Réserver
@@ -65,7 +74,7 @@
     @if (!Model.Any())
     {
         <div class="empty">
-            Aucun billet disponible 😔
+            Aucun billet disponible
         </div>
     }
 
